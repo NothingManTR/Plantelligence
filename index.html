@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plantelligence | Yapay Zeka Destekli Akıllı Sera ve Otonom Bitki Bakım Sistemi</title>
-    <meta name="description" content="Deneyap Kart ve ESP32 tabanlı, yapay zeka destekli otonom kapalı devre sera ve bitki bakım otomasyon sistemi. Gerçek zamanlı telemetri, otonom sulama ve hastalık teşhisi.">
-    <meta name="keywords" content="Plantelligence, Akıllı Tarım, Deneyap Kart, IoT, ESP32, Yapay Zeka, Sera Otomasyonu, Otonom Sulama, Sensör">
-    <meta name="author" content="Plantelligence Team">
+    <title>Plantelligence | TÜBİTAK 2209-A Akıllı Saksı ve Otonom Bitki Bakım Sistemi</title>
+    <meta name="description" content="TÜBİTAK 2209-A destekli; Deneyap Kart, ESP32-CAM ve NPK 3 tüp besin dozajlama özellikli yapay zeka destekli otonom akıllı saksı ve sera otomasyon sistemi.">
+    <meta name="keywords" content="Plantelligence, TÜBİTAK 2209-A, Taha Can Tunç, Deneyap Kart, Akıllı Saksı, IoT, NPK Sensörü, ESP32-CAM, Bitki Hastalık Teşhisi, Otonom Sulama">
+    <meta name="author" content="Taha Can Tunç">
     
     <!-- Open Graph / Meta -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Plantelligence | Akıllı Tarımın Geleceği">
-    <meta property="og:description" content="Deneyap Kart ve Yapay Zeka ile otonom sera izleme, akıllı sulama ve bitki sağlığı telemetrisi.">
+    <meta property="og:title" content="Plantelligence | TÜBİTAK 2209-A Akıllı Bitki Bakım Sistemi">
+    <meta property="og:description" content="Deneyap Kart ve Yapay Zeka destekli otonom akıllı saksı, NPK gübreleme ve 7/24 kamera takibi.">
     <meta property="og:url" content="https://nothingmantr.github.io/Plantelligence/">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=1200&auto=format&fit=crop">
+    <meta property="og:image" content="assets/3d-cad-pot.png">
 
     <!-- Google Fonts & FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,10 +30,13 @@
             --primary: #16a34a;
             --primary-dark: #14532d;
             --primary-light: #4ade80;
-            --primary-glow: rgba(22, 163, 74, 0.25);
+            --primary-glow: rgba(22, 163, 74, 0.22);
             
             --accent: #eab308;
             --accent-glow: rgba(234, 179, 8, 0.25);
+            
+            --tubitak: #dc2626;
+            --tubitak-glow: rgba(220, 38, 38, 0.18);
             
             --info: #0284c7;
             --danger: #ef4444;
@@ -43,14 +46,14 @@
             --bg-card: #ffffff;
             --bg-card-hover: #f1f5f9;
             --bg-input: #f1f5f9;
-            --border-color: rgba(22, 163, 74, 0.15);
+            --border-color: rgba(22, 163, 74, 0.16);
             --border-card: rgba(0, 0, 0, 0.08);
             
             --text-main: #0f172a;
             --text-muted: #64748b;
             --text-inverse: #ffffff;
             
-            --nav-bg: rgba(255, 255, 255, 0.85);
+            --nav-bg: rgba(255, 255, 255, 0.88);
             --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
             --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
             --shadow-lg: 0 16px 36px rgba(22, 163, 74, 0.12);
@@ -69,18 +72,21 @@
             --accent: #fbbf24;
             --accent-glow: rgba(251, 191, 36, 0.25);
             
+            --tubitak: #ef4444;
+            --tubitak-glow: rgba(239, 68, 68, 0.25);
+            
             --bg-base: #0a110c;
             --bg-card: #111d15;
             --bg-card-hover: #17281d;
             --bg-input: #17291e;
             --border-color: rgba(34, 197, 94, 0.2);
-            --border-card: rgba(255, 255, 255, 0.06);
+            --border-card: rgba(255, 255, 255, 0.07);
             
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --text-inverse: #0f172a;
             
-            --nav-bg: rgba(10, 17, 12, 0.85);
+            --nav-bg: rgba(10, 17, 12, 0.88);
             --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
             --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
             --shadow-lg: 0 16px 36px rgba(34, 197, 94, 0.15);
@@ -102,14 +108,12 @@
             padding-top: 76px;
         }
 
-        /* Container */
         .container {
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 1.5rem;
         }
 
-        /* Typography */
         h1, h2, h3, h4, h5 {
             color: var(--text-main);
             font-weight: 700;
@@ -122,9 +126,25 @@
             -webkit-text-fill-color: transparent;
         }
 
+        .tubitak-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0.9rem;
+            border-radius: var(--radius-full);
+            background: var(--tubitak-glow);
+            color: var(--tubitak);
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: 1px solid rgba(220, 38, 38, 0.25);
+            margin-bottom: 0.8rem;
+        }
+
         .section-header {
             text-align: center;
-            max-width: 760px;
+            max-width: 820px;
             margin: 0 auto 3.5rem auto;
         }
 
@@ -183,7 +203,7 @@
             gap: 0.75rem;
             text-decoration: none;
             color: var(--text-main);
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             font-weight: 800;
         }
 
@@ -203,7 +223,7 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.4rem;
             list-style: none;
         }
 
@@ -211,22 +231,16 @@
             text-decoration: none;
             color: var(--text-muted);
             font-weight: 600;
-            font-size: 0.95rem;
-            padding: 0.6rem 1rem;
+            font-size: 0.92rem;
+            padding: 0.55rem 0.95rem;
             border-radius: var(--radius-full);
             transition: var(--transition-smooth);
             cursor: pointer;
         }
 
-        .nav-item:hover {
+        .nav-item:hover, .nav-item.active {
             color: var(--primary);
             background: var(--primary-glow);
-        }
-
-        .nav-item.active {
-            color: var(--primary);
-            background: var(--primary-glow);
-            font-weight: 700;
         }
 
         .nav-actions {
@@ -260,18 +274,16 @@
         .nav-cta-btn {
             background: linear-gradient(135deg, var(--primary) 0%, #15803d 100%);
             color: white;
-            padding: 0.6rem 1.4rem;
+            padding: 0.6rem 1.3rem;
             border-radius: var(--radius-full);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             box-shadow: 0 4px 14px var(--primary-glow);
             transition: var(--transition-smooth);
-            border: none;
-            cursor: pointer;
         }
 
         .nav-cta-btn:hover {
@@ -289,7 +301,6 @@
             padding: 0.5rem;
         }
 
-        /* Mobile Menu */
         .mobile-menu {
             position: fixed;
             top: 76px;
@@ -309,15 +320,10 @@
             display: flex;
         }
 
-        .mobile-menu .nav-item {
-            padding: 0.8rem 1rem;
-            border-radius: 12px;
-        }
-
         /* Hero Section */
         .hero {
             position: relative;
-            padding: 5rem 0 4rem 0;
+            padding: 4.5rem 0 4rem 0;
             overflow: hidden;
         }
 
@@ -336,19 +342,19 @@
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 3.5rem;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 3rem;
             align-items: center;
         }
 
         .hero-title {
-            font-size: 3.5rem;
+            font-size: 3.3rem;
             line-height: 1.15;
             margin-bottom: 1.5rem;
         }
 
         .hero-description {
-            font-size: 1.18rem;
+            font-size: 1.15rem;
             color: var(--text-muted);
             margin-bottom: 2rem;
             line-height: 1.7;
@@ -364,10 +370,10 @@
         .btn-primary {
             background: linear-gradient(135deg, var(--primary) 0%, #15803d 100%);
             color: white;
-            padding: 0.9rem 2rem;
+            padding: 0.85rem 1.8rem;
             border-radius: var(--radius-full);
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.95rem;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
@@ -386,10 +392,10 @@
         .btn-outline {
             background: var(--bg-card);
             color: var(--text-main);
-            padding: 0.9rem 2rem;
+            padding: 0.85rem 1.8rem;
             border-radius: var(--radius-full);
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.95rem;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
@@ -408,131 +414,100 @@
 
         .hero-stats {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
             padding-top: 1.5rem;
             border-top: 1px solid var(--border-card);
         }
 
         .stat-item h4 {
-            font-size: 2rem;
+            font-size: 1.75rem;
             color: var(--primary);
             font-weight: 800;
             line-height: 1.2;
         }
 
         .stat-item p {
-            font-size: 0.85rem;
+            font-size: 0.78rem;
             color: var(--text-muted);
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
         }
 
-        /* Hero Preview Card / Glass Card */
+        /* Hero Preview Card */
         .hero-preview {
             background: var(--bg-card);
             border: 1px solid var(--border-card);
             border-radius: var(--radius-lg);
-            padding: 2rem;
+            padding: 1.8rem;
             box-shadow: var(--shadow-lg);
             position: relative;
-            backdrop-filter: blur(20px);
         }
 
-        .hero-preview-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border-card);
-        }
-
-        .live-tag {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(34, 197, 94, 0.15);
-            color: var(--success);
-            padding: 0.35rem 0.85rem;
-            border-radius: var(--radius-full);
-            font-size: 0.8rem;
-            font-weight: 700;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .live-pulse {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--success);
-            box-shadow: 0 0 10px var(--success);
-            animation: pulse-ring 1.5s infinite;
-        }
-
-        @keyframes pulse-ring {
-            0% { transform: scale(0.95); opacity: 0.8; }
-            50% { transform: scale(1.3); opacity: 1; }
-            100% { transform: scale(0.95); opacity: 0.8; }
+        .hero-cad-img {
+            width: 100%;
+            border-radius: 14px;
+            margin-bottom: 1.2rem;
+            border: 1px solid var(--border-card);
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            background: #fff;
         }
 
         .preview-mini-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            gap: 0.8rem;
         }
 
         .preview-tile {
             background: var(--bg-base);
             border: 1px solid var(--border-card);
-            border-radius: 16px;
-            padding: 1.2rem;
+            border-radius: 12px;
+            padding: 0.9rem;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.8rem;
         }
 
         .tile-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
         }
 
         .icon-water { background: rgba(2, 132, 199, 0.15); color: #0284c7; }
+        .icon-npk { background: rgba(22, 163, 74, 0.15); color: #16a34a; }
         .icon-temp { background: rgba(234, 88, 12, 0.15); color: #ea580c; }
-        .icon-ph { background: rgba(168, 85, 247, 0.15); color: #a855f7; }
-        .icon-sun { background: rgba(234, 179, 8, 0.15); color: #eab308; }
+        .icon-cam { background: rgba(147, 51, 234, 0.15); color: #9333ea; }
 
         .tile-info h5 {
-            font-size: 0.8rem;
+            font-size: 0.72rem;
             color: var(--text-muted);
             text-transform: uppercase;
         }
 
         .tile-info h3 {
-            font-size: 1.35rem;
+            font-size: 1.15rem;
             font-weight: 800;
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* Section Layout */
         .section-padding {
-            padding: 6rem 0;
+            padding: 5.5rem 0;
             border-top: 1px solid var(--border-card);
         }
 
-        /* SIMULATION SECTION - STAR FEATURE */
+        /* SIMULATION SECTION */
         .simulation-box {
             background: var(--bg-card);
             border: 1px solid var(--border-card);
             border-radius: var(--radius-lg);
-            padding: 2.5rem;
+            padding: 2.2rem;
             box-shadow: var(--shadow-lg);
         }
 
@@ -541,54 +516,29 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 1.5rem;
+            gap: 1.2rem;
             margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
+            padding-bottom: 1.2rem;
             border-bottom: 1px solid var(--border-card);
         }
 
-        .sim-mode-toggle {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
+        .formula-callout {
             background: var(--bg-base);
-            padding: 0.4rem;
-            border-radius: var(--radius-full);
             border: 1px solid var(--border-card);
-        }
-
-        .mode-btn {
-            padding: 0.5rem 1.2rem;
-            border-radius: var(--radius-full);
-            border: none;
-            background: transparent;
-            color: var(--text-muted);
-            font-weight: 700;
-            font-size: 0.88rem;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-        }
-
-        .mode-btn.active {
-            background: var(--primary);
-            color: white;
-            box-shadow: 0 2px 10px var(--primary-glow);
-        }
-
-        .sim-status-banner {
+            border-radius: 12px;
+            padding: 0.8rem 1.2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
             gap: 0.8rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            color: var(--text-muted);
+            color: var(--primary);
         }
 
-        /* Telemetry Cards Grid */
         .telemetry-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.2rem;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 1rem;
             margin-bottom: 2rem;
         }
 
@@ -596,7 +546,7 @@
             background: var(--bg-base);
             border: 1px solid var(--border-card);
             border-radius: var(--radius-md);
-            padding: 1.4rem;
+            padding: 1.2rem;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -616,43 +566,33 @@
         .telemetry-card:hover {
             transform: translateY(-4px);
             border-color: var(--primary);
-            box-shadow: var(--shadow-md);
         }
 
         .telemetry-icon {
-            font-size: 1.8rem;
-            margin-bottom: 0.6rem;
-            color: var(--primary);
+            font-size: 1.6rem;
+            margin-bottom: 0.4rem;
         }
 
         .telemetry-value {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 800;
             font-family: 'JetBrains Mono', monospace;
-            margin-bottom: 0.2rem;
         }
 
         .telemetry-label {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
         }
 
-        .telemetry-status {
-            font-size: 0.75rem;
-            margin-top: 0.6rem;
-            padding: 0.2rem 0.6rem;
-            border-radius: var(--radius-full);
-            display: inline-block;
-            font-weight: 700;
+        .telemetry-sub {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
         }
 
-        .status-optimal { background: rgba(34, 197, 94, 0.15); color: #16a34a; }
-        .status-warning { background: rgba(234, 179, 8, 0.15); color: #b45309; }
-        .status-critical { background: rgba(239, 68, 68, 0.15); color: #dc2626; }
-
-        /* Actuator Control Panel */
+        /* Actuators Grid */
         .actuator-panel {
             background: var(--bg-base);
             border: 1px solid var(--border-card);
@@ -661,67 +601,46 @@
             margin-bottom: 2rem;
         }
 
-        .actuator-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1.2rem;
-        }
-
-        .actuator-header h4 {
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
         .actuator-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.2rem;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1rem;
         }
 
         .actuator-card {
             background: var(--bg-card);
             border: 1px solid var(--border-card);
-            border-radius: 14px;
-            padding: 1.2rem;
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
         .actuator-title {
-            font-size: 0.92rem;
+            font-size: 0.88rem;
             font-weight: 700;
         }
 
         .actuator-subtitle {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             color: var(--text-muted);
         }
 
-        /* Toggle Switch */
+        /* Switch */
         .switch {
             position: relative;
             display: inline-block;
-            width: 50px;
-            height: 28px;
+            width: 48px;
+            height: 26px;
         }
 
-        .switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
+        .switch input { opacity: 0; width: 0; height: 0; }
 
         .slider {
             position: absolute;
             cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background-color: #cbd5e1;
             transition: .4s;
             border-radius: 34px;
@@ -730,8 +649,8 @@
         .slider:before {
             position: absolute;
             content: "";
-            height: 20px;
-            width: 20px;
+            height: 18px;
+            width: 18px;
             left: 4px;
             bottom: 4px;
             background-color: white;
@@ -739,19 +658,14 @@
             border-radius: 50%;
         }
 
-        input:checked + .slider {
-            background-color: var(--primary);
-        }
+        input:checked + .slider { background-color: var(--primary); }
+        input:checked + .slider:before { transform: translateX(22px); }
 
-        input:checked + .slider:before {
-            transform: translateX(22px);
-        }
-
-        /* Simulation Chart & AI Disease Container */
+        /* Sim Dual Grid */
         .sim-dual-container {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 2rem;
+            grid-template-columns: 1.25fr 0.75fr;
+            gap: 1.8rem;
             margin-top: 2rem;
         }
 
@@ -759,535 +673,148 @@
             background: var(--bg-base);
             border: 1px solid var(--border-card);
             border-radius: var(--radius-md);
-            padding: 1.5rem;
+            padding: 1.4rem;
         }
 
         .ai-diagnostic-box {
             background: var(--bg-base);
             border: 1px solid var(--border-card);
             border-radius: var(--radius-md);
-            padding: 1.5rem;
+            padding: 1.4rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        .plant-selector {
+        /* EXPERIMENT & CAD SHOWCASE SECTION */
+        .media-showcase-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.8rem;
-            margin: 1.2rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
-        .plant-btn {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: 12px;
-            padding: 0.75rem;
-            text-align: left;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-        }
-
-        .plant-btn:hover {
-            border-color: var(--primary);
-        }
-
-        .plant-btn.selected {
-            background: var(--primary-glow);
-            border-color: var(--primary);
-        }
-
-        .plant-btn h6 {
-            font-size: 0.85rem;
-            font-weight: 700;
-        }
-
-        .plant-btn span {
-            font-size: 0.72rem;
-            color: var(--text-muted);
-        }
-
-        .ai-result-card {
-            background: var(--bg-card);
-            border-radius: 12px;
-            padding: 1.2rem;
-            border-left: 4px solid var(--primary);
-            margin-top: 1rem;
-        }
-
-        .ai-score {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-        }
-
-        .ai-score-badge {
-            background: var(--primary-glow);
-            color: var(--primary);
-            font-weight: 800;
-            font-family: 'JetBrains Mono', monospace;
-            padding: 0.2rem 0.6rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
-        }
-
-        /* FEATURES SECTION (BENTO GRID) */
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .bento-card {
+        .media-card {
             background: var(--bg-card);
             border: 1px solid var(--border-card);
             border-radius: var(--radius-md);
-            padding: 2rem;
+            overflow: hidden;
             box-shadow: var(--shadow-sm);
             transition: var(--transition-smooth);
-            position: relative;
-            overflow: hidden;
         }
 
-        .bento-card:hover {
+        .media-card:hover {
             transform: translateY(-5px);
             border-color: var(--primary);
             box-shadow: var(--shadow-md);
         }
 
-        .bento-span-2 {
-            grid-column: span 2;
-        }
-
-        .bento-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 14px;
-            background: var(--primary-glow);
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .bento-card h3 {
-            font-size: 1.35rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .bento-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* TECH & HARDWARE SECTION */
-        .tech-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-        }
-
-        .tech-tab-btn {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            color: var(--text-muted);
-            padding: 0.75rem 1.8rem;
-            border-radius: var(--radius-full);
-            font-weight: 700;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-        }
-
-        .tech-tab-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            box-shadow: 0 4px 14px var(--primary-glow);
-        }
-
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .tech-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: var(--radius-md);
-            padding: 2rem;
-            transition: var(--transition-smooth);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .tech-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .tech-card-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .tech-badge-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: var(--bg-base);
-            border: 1px solid var(--border-card);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-
-        .tech-card ul {
-            list-style: none;
-            margin: 1.2rem 0;
-        }
-
-        .tech-card li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.6rem;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .tech-card li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        .tech-detail-btn {
-            background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--primary);
-            padding: 0.6rem 1rem;
-            border-radius: var(--radius-full);
-            font-weight: 700;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .tech-detail-btn:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        /* COMPARISON TABLE */
-        .table-responsive {
-            overflow-x: auto;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border-card);
-        }
-
-        .comparison-table {
+        .media-card-img {
             width: 100%;
-            border-collapse: collapse;
-            background: var(--bg-card);
-            text-align: left;
-        }
-
-        .comparison-table th, .comparison-table td {
-            padding: 1.2rem 1.5rem;
+            height: 240px;
+            object-fit: cover;
+            background: #ffffff;
             border-bottom: 1px solid var(--border-card);
         }
 
-        .comparison-table th {
-            background: var(--bg-base);
-            font-weight: 700;
-            font-size: 0.95rem;
+        .media-card-body {
+            padding: 1.6rem;
         }
 
-        .comparison-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .comparison-table .highlight-col {
-            background: var(--primary-glow);
+        .media-badge {
+            font-size: 0.75rem;
             font-weight: 700;
             color: var(--primary);
+            text-transform: uppercase;
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 0.4rem;
         }
 
-        /* TIMELINE / ROADMAP */
+        /* TIMELINE SECTION */
         .timeline-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
-            position: relative;
+            gap: 1.4rem;
         }
 
         .timeline-card {
             background: var(--bg-card);
             border: 1px solid var(--border-card);
             border-radius: var(--radius-md);
-            padding: 1.8rem;
+            padding: 1.6rem;
             position: relative;
-            transition: var(--transition-smooth);
+            border-left: 4px solid var(--primary);
         }
 
-        .timeline-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-4px);
-        }
-
-        .timeline-stage {
-            font-size: 0.8rem;
-            font-weight: 800;
-            color: var(--primary);
-            text-transform: uppercase;
+        .timeline-date {
+            font-size: 0.78rem;
             font-family: 'JetBrains Mono', monospace;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-status-badge {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            font-size: 0.75rem;
+            color: var(--primary);
             font-weight: 700;
-            padding: 0.2rem 0.6rem;
-            border-radius: var(--radius-full);
+            margin-bottom: 0.4rem;
         }
 
-        .badge-done { background: rgba(34, 197, 94, 0.15); color: #16a34a; }
-        .badge-active { background: rgba(234, 179, 8, 0.2); color: #d97706; }
-        .badge-future { background: rgba(100, 116, 139, 0.15); color: #64748b; }
-
-        /* GALLERY */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .gallery-card {
-            position: relative;
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            aspect-ratio: 16/10;
+        /* SOLO DEVELOPER SECTION */
+        .lead-profile-card {
             background: var(--bg-card);
             border: 1px solid var(--border-card);
-        }
-
-        .gallery-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-card:hover img {
-            transform: scale(1.08);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 1.5rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
-            color: white;
-            transform: translateY(10px);
-            opacity: 0.9;
-            transition: var(--transition-smooth);
-        }
-
-        .gallery-overlay h4 {
-            color: white;
-            font-size: 1.1rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .gallery-overlay p {
-            font-size: 0.8rem;
-            color: #d1d5db;
-        }
-
-        /* TEAM SECTION */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .team-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: var(--radius-md);
-            padding: 2rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            transition: var(--transition-smooth);
-        }
-
-        .team-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
             box-shadow: var(--shadow-md);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2.5rem;
+            align-items: center;
+            max-width: 960px;
+            margin: 0 auto;
         }
 
-        .team-avatar {
-            width: 64px;
-            height: 64px;
-            border-radius: 16px;
+        .profile-avatar-large {
+            width: 130px;
+            height: 130px;
+            border-radius: 30px;
             background: linear-gradient(135deg, var(--primary) 0%, #0d9488 100%);
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.6rem;
+            font-size: 3rem;
             font-weight: 800;
-            flex-shrink: 0;
-            box-shadow: 0 4px 12px var(--primary-glow);
+            box-shadow: 0 10px 25px var(--primary-glow);
         }
 
-        .team-details h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .team-role {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.6rem;
-        }
-
-        .team-bio {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 0.8rem;
-            line-height: 1.5;
-        }
-
-        .team-tags {
+        .profile-links {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.4rem;
+            gap: 0.8rem;
+            margin-top: 1.2rem;
         }
 
-        .team-tag {
-            font-size: 0.72rem;
-            font-weight: 600;
-            padding: 0.2rem 0.6rem;
-            border-radius: var(--radius-full);
+        .profile-btn {
             background: var(--bg-base);
             border: 1px solid var(--border-card);
-            color: var(--text-muted);
-        }
-
-        /* CONTACT & MAP */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-        }
-
-        .contact-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: var(--radius-lg);
-            padding: 2.5rem;
-            box-shadow: var(--shadow-md);
-        }
-
-        .form-group {
-            margin-bottom: 1.4rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.9rem 1.2rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-card);
-            background: var(--bg-input);
             color: var(--text-main);
-            font-size: 0.95rem;
+            padding: 0.5rem 1.1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             transition: var(--transition-smooth);
         }
 
-        .form-control:focus {
-            outline: none;
+        .profile-btn:hover {
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px var(--primary-glow);
-        }
-
-        .contact-info-list {
-            list-style: none;
-            margin-top: 1.5rem;
-        }
-
-        .contact-info-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.2rem;
-            font-size: 0.95rem;
-        }
-
-        .contact-icon-bubble {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            background: var(--primary-glow);
             color: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-        }
-
-        #contactMap {
-            height: 280px;
-            border-radius: var(--radius-md);
-            margin-top: 1.5rem;
-            border: 1px solid var(--border-card);
-            z-index: 10;
+            transform: translateY(-2px);
         }
 
         /* MODAL */
         .modal {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(8px);
             display: none;
@@ -1297,9 +824,7 @@
             padding: 1.5rem;
         }
 
-        .modal.open {
-            display: flex;
-        }
+        .modal.open { display: flex; }
 
         .modal-content {
             background: var(--bg-card);
@@ -1308,143 +833,57 @@
             width: 100%;
             max-width: 650px;
             padding: 2rem;
-            box-shadow: var(--shadow-lg);
             position: relative;
             max-height: 85vh;
             overflow-y: auto;
-            animation: modalFadeIn 0.3s ease;
-        }
-
-        @keyframes modalFadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .modal-close {
             position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
+            top: 1.5rem; right: 1.5rem;
             background: var(--bg-base);
             border: none;
-            width: 36px;
-            height: 36px;
+            width: 36px; height: 36px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             font-size: 1.1rem;
             cursor: pointer;
             color: var(--text-muted);
-            transition: var(--transition-smooth);
         }
 
-        .modal-close:hover {
-            color: var(--danger);
-            background: rgba(239, 68, 68, 0.1);
-        }
-
-        /* FOOTER */
-        .footer {
-            background: var(--bg-card);
-            border-top: 1px solid var(--border-card);
-            padding: 4rem 0 2rem 0;
-            margin-top: 5rem;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.5fr repeat(3, 1fr);
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-brand p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-top: 1rem;
-            line-height: 1.6;
-        }
-
-        .footer-col h5 {
-            font-size: 1rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col li {
-            margin-bottom: 0.6rem;
-        }
-
-        .footer-col a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: var(--transition-smooth);
-        }
-
-        .footer-col a:hover {
-            color: var(--primary);
-        }
-
-        .footer-bottom {
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-card);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        /* Toast notification */
+        /* Toast */
         .toast {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
+            bottom: 2rem; right: 2rem;
             background: var(--primary);
             color: white;
             padding: 1rem 1.6rem;
             border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
+            display: flex; align-items: center; gap: 0.8rem;
             font-weight: 600;
             font-size: 0.95rem;
             transform: translateY(100px);
             opacity: 0;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s ease;
             z-index: 3000;
         }
 
-        .toast.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
+        .toast.show { transform: translateY(0); opacity: 1; }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-            .bento-grid { grid-template-columns: 1fr 1fr; }
-            .bento-span-2 { grid-column: span 1; }
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); }
             .sim-dual-container { grid-template-columns: 1fr; }
-            .contact-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .lead-profile-card { grid-template-columns: 1fr; text-align: center; }
+            .profile-avatar-large { margin: 0 auto; }
+            .profile-links { justify-content: center; }
         }
 
         @media (max-width: 768px) {
             .nav-links, .nav-cta-btn { display: none; }
             .mobile-toggle { display: block; }
-            .hero-title { font-size: 2.6rem; }
-            .bento-grid { grid-template-columns: 1fr; }
-            .hero-stats { grid-template-columns: 1fr; gap: 1rem; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .section-title { font-size: 2rem; }
+            .hero-title { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -1461,13 +900,13 @@
             </a>
 
             <ul class="nav-links">
-                <li><a class="nav-item active" href="#hero">Ana Sayfa</a></li>
+                <li><a class="nav-item active" href="#hero">Giriş</a></li>
                 <li><a class="nav-item" href="#simulation">Canlı Simülatör</a></li>
-                <li><a class="nav-item" href="#features">Özellikler</a></li>
-                <li><a class="nav-item" href="#tech">Teknoloji</a></li>
-                <li><a class="nav-item" href="#roadmap">Yol Haritası</a></li>
-                <li><a class="nav-item" href="#team">Ekip</a></li>
-                <li><a class="nav-item" href="#contact">İletişim</a></li>
+                <li><a class="nav-item" href="#hardware">Donanım & CAD</a></li>
+                <li><a class="nav-item" href="#algorithm">Algoritma</a></li>
+                <li><a class="nav-item" href="#experiments">Deney Sonuçları</a></li>
+                <li><a class="nav-item" href="#timeline">TÜBİTAK Süreci</a></li>
+                <li><a class="nav-item" href="#developer">Geliştirici</a></li>
             </ul>
 
             <div class="nav-actions">
@@ -1487,306 +926,272 @@
 
     <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobileMenu">
-        <a class="nav-item" href="#hero" onclick="closeMobileMenu()">Ana Sayfa</a>
+        <a class="nav-item" href="#hero" onclick="closeMobileMenu()">Giriş</a>
         <a class="nav-item" href="#simulation" onclick="closeMobileMenu()">Canlı Simülatör</a>
-        <a class="nav-item" href="#features" onclick="closeMobileMenu()">Özellikler</a>
-        <a class="nav-item" href="#tech" onclick="closeMobileMenu()">Teknoloji</a>
-        <a class="nav-item" href="#roadmap" onclick="closeMobileMenu()">Yol Haritası</a>
-        <a class="nav-item" href="#team" onclick="closeMobileMenu()">Ekip</a>
-        <a class="nav-item" href="#contact" onclick="closeMobileMenu()">İletişim</a>
-        <a class="nav-cta-btn" href="https://github.com/NothingManTR/Plantelligence" target="_blank" style="margin-top: 0.5rem; justify-content: center;">
-            <i class="fab fa-github"></i>
-            <span>GitHub Reposu</span>
-        </a>
+        <a class="nav-item" href="#hardware" onclick="closeMobileMenu()">Donanım & CAD</a>
+        <a class="nav-item" href="#algorithm" onclick="closeMobileMenu()">Algoritma</a>
+        <a class="nav-item" href="#experiments" onclick="closeMobileMenu()">Deney Sonuçları</a>
+        <a class="nav-item" href="#timeline" onclick="closeMobileMenu()">TÜBİTAK Süreci</a>
+        <a class="nav-item" href="#developer" onclick="closeMobileMenu()">Geliştirici</a>
     </div>
 
     <!-- HERO SECTION -->
     <section class="hero" id="hero">
         <div class="container hero-grid">
             <div class="hero-left">
-                <div class="section-badge">
-                    <i class="fas fa-bolt"></i>
-                    <span>Deneyap Kart & ESP32-CAM IoT Altyapısı</span>
+                <div class="tubitak-badge">
+                    <i class="fas fa-microscope"></i>
+                    <span>TÜBİTAK 2209-A Üniversite Öğrencileri Araştırma Projesi</span>
                 </div>
                 <h1 class="hero-title">
                     Bitkilerin Dili, <br>
-                    <span class="gradient-text">Yapay Zekanın Gücü</span> ile Buluşuyor
+                    <span class="gradient-text">Yapay Zeka ve IoT</span> ile Çözülüyor
                 </h1>
                 <p class="hero-description">
-                    Plantelligence; çok parametreli sensör telemetrisi ve yerleşik makine öğrenimi modelleriyle çalışan yeni nesil kapalı devre otonom sera sistemidir. Toprağın ve iklimin her salisesini izler, ihtiyaca göre otonom sular ve hastalıkları henüz yayılmadan teşhis eder.
+                    Plantelligence; <strong>Deneyap Kart</strong>, <strong>ESP32-CAM</strong>, <strong>RS485 NPK sensörü</strong> ve <strong>3 tüplü otonom gübreleme (Azot, Fosfor, Potasyum)</strong> ünitesiyle çalışan akıllı saksı ve sera otomasyon sistemidir. Hastalıkları henüz yaprakta belirmeden saptar, bitkiyi 7/24 görsel olarak izler ve ihtiyaç duyduğu besini mililitrik olarak toprağa iletir.
                 </p>
                 <div class="hero-buttons">
                     <a href="#simulation" class="btn-primary">
                         <i class="fas fa-play"></i>
                         <span>Canlı Simülatörü Başlat</span>
                     </a>
-                    <a href="#tech" class="btn-outline">
-                        <i class="fas fa-microchip"></i>
-                        <span>Teknik Mimari</span>
+                    <a href="#hardware" class="btn-outline">
+                        <i class="fas fa-cube"></i>
+                        <span>3D CAD & Devre Tasarımı</span>
                     </a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat-item">
-                        <h4>%70</h4>
-                        <p>Su Tasarrufu</p>
+                        <h4>%41.5+</h4>
+                        <p>Daha Hızlı Büyüme</p>
                     </div>
                     <div class="stat-item">
-                        <h4>%98</h4>
-                        <p>Hastalık Teşhis Doğruluğu</p>
+                        <h4>8 Adet</h4>
+                        <p>Endüstriyel Sensör</p>
                     </div>
                     <div class="stat-item">
-                        <h4>&lt;50ms</h4>
-                        <p>Telemetri Tepki Süresi</p>
+                        <h4>3 Tüp</h4>
+                        <p>NPK Dozajlama</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>7/24</h4>
+                        <p>ESP32-CAM Canlı Akış</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Hero Live Preview Card -->
+            <!-- Hero CAD Preview -->
             <div class="hero-preview">
-                <div class="hero-preview-header">
-                    <div>
-                        <h4 style="font-size: 1.15rem;">Sera Kontrol Ünitesi</h4>
-                        <span style="font-size: 0.8rem; color: var(--text-muted);">İstasyon #01 • Manisa / Türkiye</span>
-                    </div>
-                    <div class="live-tag">
-                        <span class="live-pulse"></span>
-                        <span>CANLI AKIŞ</span>
-                    </div>
-                </div>
-
+                <img src="assets/3d-cad-pot.png" alt="Akıllı Saksı 3D CAD Tasarımı" class="hero-cad-img">
                 <div class="preview-mini-grid">
                     <div class="preview-tile">
-                        <div class="tile-icon icon-water">
-                            <i class="fas fa-tint"></i>
-                        </div>
+                        <div class="tile-icon icon-npk"><i class="fas fa-vial"></i></div>
                         <div class="tile-info">
-                            <h5>Toprak Nemi</h5>
-                            <h3 id="heroMoisture">64%</h3>
+                            <h5>Toprak NPK</h5>
+                            <h3 id="heroNpk">N:42 P:28 K:35</h3>
                         </div>
                     </div>
                     <div class="preview-tile">
-                        <div class="tile-icon icon-temp">
-                            <i class="fas fa-thermometer-half"></i>
-                        </div>
+                        <div class="tile-icon icon-water"><i class="fas fa-tint"></i></div>
                         <div class="tile-info">
-                            <h5>Ortam Sıcaklığı</h5>
-                            <h3 id="heroTemp">23.8°C</h3>
+                            <h5>Toprak Nemi (FC28)</h5>
+                            <h3 id="heroMoist">58.4%</h3>
                         </div>
                     </div>
                     <div class="preview-tile">
-                        <div class="tile-icon icon-ph">
-                            <i class="fas fa-flask"></i>
-                        </div>
+                        <div class="tile-icon icon-temp"><i class="fas fa-temperature-high"></i></div>
                         <div class="tile-info">
-                            <h5>Toprak pH</h5>
-                            <h3 id="heroPh">6.4</h3>
+                            <h5>BMP280 Sıcaklık</h5>
+                            <h3 id="heroTemp">22.8°C</h3>
                         </div>
                     </div>
                     <div class="preview-tile">
-                        <div class="tile-icon icon-sun">
-                            <i class="fas fa-sun"></i>
-                        </div>
+                        <div class="tile-icon icon-cam"><i class="fas fa-camera"></i></div>
                         <div class="tile-info">
-                            <h5>Işık Akısı</h5>
-                            <h3 id="heroLux">12,450 lx</h3>
+                            <h5>ESP32-CAM</h5>
+                            <h3 style="font-size: 0.95rem; color: var(--primary);">7/24 Aktif</h3>
                         </div>
                     </div>
-                </div>
-
-                <div style="background: var(--bg-base); padding: 1rem 1.2rem; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; border: 1px solid var(--border-card);">
-                    <div style="display: flex; align-items: center; gap: 0.8rem;">
-                        <i class="fas fa-check-circle" style="color: var(--success); font-size: 1.2rem;"></i>
-                        <div>
-                            <div style="font-size: 0.88rem; font-weight: 700;">Döngü Durumu: Kusursuz</div>
-                            <div style="font-size: 0.75rem; color: var(--text-muted);">Tüm mikrokontrolör ve röleler devrede</div>
-                        </div>
-                    </div>
-                    <a href="#simulation" style="font-size: 0.82rem; color: var(--primary); font-weight: 700; text-decoration: none;">İncele &rarr;</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CANLI SİMÜLASYON SECTION -->
+    <!-- SİMÜLASYON SECTION -->
     <section class="section-padding" id="simulation">
         <div class="container">
             <div class="section-header">
                 <div class="section-badge">
                     <i class="fas fa-sliders-h"></i>
-                    <span>İnteraktif Telemetri & Eyleyici Paneli</span>
+                    <span>TÜBİTAK 2209-A Telemetri & Otonom Eyleyici Paneli</span>
                 </div>
-                <h2 class="section-title">Gerçek Zamanlı <span class="gradient-text">Sera Simülatörü</span></h2>
+                <h2 class="section-title">Gerçek Zamanlı <span class="gradient-text">Akıllı Saksı Simülatörü</span></h2>
                 <p class="section-subtitle">
-                    Aşağıdaki eyleyicileri (pompa, fan, bitki ışığı) manuel tetikleyebilir veya sistemi yapay zeka destekli tam otonom moda alarak dinamik tepkileri canlı grafikte gözlemleyebilirsiniz.
+                    Sunumda tanımlanan Fitlik Fonksiyonu formülü ve 3 tüp NPK dozajlama sistemiyle birebir uyumlu çalışan interaktif test laboratuvarı.
                 </p>
             </div>
 
             <div class="simulation-box">
-                <!-- Simulation Top Bar -->
                 <div class="sim-top-bar">
-                    <div class="sim-mode-toggle">
-                        <button class="mode-btn active" id="btnAutoMode" onclick="setSimMode('auto')">
-                            <i class="fas fa-robot"></i> Otonom AI Modu
+                    <div style="display:flex; align-items:center; gap:0.8rem;">
+                        <button class="btn-primary" id="btnAutoMode" style="padding:0.45rem 1.1rem; font-size:0.85rem;" onclick="setSimMode('auto')">
+                            <i class="fas fa-robot"></i> Otonom Algoritma Modu
                         </button>
-                        <button class="mode-btn" id="btnManualMode" onclick="setSimMode('manual')">
+                        <button class="btn-outline" id="btnManualMode" style="padding:0.45rem 1.1rem; font-size:0.85rem;" onclick="setSimMode('manual')">
                             <i class="fas fa-hand-paper"></i> Manuel Kontrol
                         </button>
                     </div>
 
-                    <div class="sim-status-banner">
-                        <i class="fas fa-circle-notch fa-spin" style="color: var(--primary);"></i>
-                        <span id="simStatusText">Telemetri Senkronizasyonu Aktif (2000ms polling)</span>
+                    <div class="formula-callout">
+                        <i class="fas fa-calculator"></i>
+                        <span>Fitlik Skoru: <strong id="simFitScore" style="color:var(--text-main);">94.8 / 100</strong></span>
                     </div>
                 </div>
 
-                <!-- Live Telemetry Sensor Cards -->
+                <!-- Telemetri Kartları (Sunumdaki Gerçek Sensörler) -->
                 <div class="telemetry-grid">
                     <div class="telemetry-card">
                         <div class="telemetry-icon" style="color: #0284c7;"><i class="fas fa-tint"></i></div>
-                        <div class="telemetry-value" id="valMoisture">62.4%</div>
+                        <div class="telemetry-value" id="valMoist">58.4%</div>
                         <div class="telemetry-label">Toprak Nemi</div>
-                        <div class="telemetry-status status-optimal" id="statusMoisture">İdeal Nem</div>
+                        <div class="telemetry-sub">FC-28 / Kapasitif</div>
                     </div>
 
                     <div class="telemetry-card">
-                        <div class="telemetry-icon" style="color: #ea580c;"><i class="fas fa-temperature-high"></i></div>
-                        <div class="telemetry-value" id="valTemp">23.2°C</div>
+                        <div class="telemetry-icon" style="color: #ea580c;"><i class="fas fa-thermometer-half"></i></div>
+                        <div class="telemetry-value" id="valTemp">22.8°C</div>
                         <div class="telemetry-label">Sıcaklık</div>
-                        <div class="telemetry-status status-optimal" id="statusTemp">Optimal</div>
-                    </div>
-
-                    <div class="telemetry-card">
-                        <div class="telemetry-icon" style="color: #0d9488;"><i class="fas fa-wind"></i></div>
-                        <div class="telemetry-value" id="valHumidity">55.8%</div>
-                        <div class="telemetry-label">Hava Nemi (DHT22)</div>
-                        <div class="telemetry-status status-optimal" id="statusHumidity">Dengeli</div>
+                        <div class="telemetry-sub">BMP280 & DHT11</div>
                     </div>
 
                     <div class="telemetry-card">
                         <div class="telemetry-icon" style="color: #eab308;"><i class="fas fa-sun"></i></div>
-                        <div class="telemetry-value" id="valLux">14,250</div>
-                        <div class="telemetry-label">Işık (BH1750 LUX)</div>
-                        <div class="telemetry-status status-optimal" id="statusLux">Gündüz Spektrumu</div>
+                        <div class="telemetry-value" id="valLux">520 lx</div>
+                        <div class="telemetry-label">Işık Şiddeti</div>
+                        <div class="telemetry-sub">TSL2591 I2C</div>
                     </div>
 
                     <div class="telemetry-card">
                         <div class="telemetry-icon" style="color: #9333ea;"><i class="fas fa-flask"></i></div>
-                        <div class="telemetry-value" id="valPh">6.35</div>
+                        <div class="telemetry-value" id="valPh">6.38</div>
                         <div class="telemetry-label">Toprak pH</div>
-                        <div class="telemetry-status status-optimal" id="statusPh">Verimli (6.3 pH)</div>
+                        <div class="telemetry-sub">DFRobot SEN0161</div>
                     </div>
 
                     <div class="telemetry-card">
-                        <div class="telemetry-icon" style="color: #0891b2;"><i class="fas fa-database"></i></div>
-                        <div class="telemetry-value" id="valWaterTank">88%</div>
-                        <div class="telemetry-label">Su Tankı Rezervi</div>
-                        <div class="telemetry-status status-optimal" id="statusWaterTank">Yeterli Seviye</div>
+                        <div class="telemetry-icon" style="color: #16a34a;"><i class="fas fa-atom"></i></div>
+                        <div class="telemetry-value" id="valNpk">42-28-35</div>
+                        <div class="telemetry-label">NPK (mg/kg)</div>
+                        <div class="telemetry-sub">RS485 Transceiver</div>
+                    </div>
+
+                    <div class="telemetry-card">
+                        <div class="telemetry-icon" style="color: #0d9488;"><i class="fas fa-wind"></i></div>
+                        <div class="telemetry-value" id="valAir">48.2</div>
+                        <div class="telemetry-label">Hava Kalitesi</div>
+                        <div class="telemetry-sub">CCS811 & MiCS-5524</div>
                     </div>
                 </div>
 
-                <!-- Actuator Panel -->
+                <!-- 3 Tüp NPK + Su ve Işık Eyleyici Paneli -->
                 <div class="actuator-panel">
-                    <div class="actuator-header">
-                        <h4><i class="fas fa-plug" style="color: var(--primary);"></i> Eyleyici & Röle Kontrol İstasyonu</h4>
-                        <span style="font-size: 0.8rem; color: var(--text-muted);" id="actuatorNote">Mod: Otonom (Sensör tetiklemeli)</span>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                        <h4 style="font-size:1.05rem;"><i class="fas fa-vials" style="color:var(--primary); margin-right:0.4rem;"></i> NPK 3 Tüp Gübreleme & Eyleyici Üniteleri</h4>
+                        <span style="font-size:0.75rem; color:var(--text-muted);" id="actuatorModeInfo">Algoritma Saatte 1 Kez Fitlik Kontrol Eder</span>
                     </div>
+
                     <div class="actuator-grid">
                         <div class="actuator-card">
                             <div>
-                                <div class="actuator-title">Damla Sulama Pompası</div>
-                                <div class="actuator-subtitle" id="pumpSub">Röle 1: Beklemede</div>
+                                <div class="actuator-title">Su Pompası (Sulama)</div>
+                                <div class="actuator-subtitle" id="subPump">Beklemede</div>
                             </div>
                             <label class="switch">
-                                <input type="checkbox" id="switchPump" onchange="toggleActuator('pump', this.checked)">
+                                <input type="checkbox" id="swPump" onchange="toggleActuator('pump', this.checked)">
                                 <span class="slider"></span>
                             </label>
                         </div>
 
                         <div class="actuator-card">
                             <div>
-                                <div class="actuator-title">Sera Havalandırma Fanı</div>
-                                <div class="actuator-subtitle" id="fanSub">Röle 2: Pasif</div>
+                                <div class="actuator-title">Tüp 1: Nitrojen (Azot)</div>
+                                <div class="actuator-subtitle" id="subN">Dozaj Pompası Pasif</div>
                             </div>
                             <label class="switch">
-                                <input type="checkbox" id="switchFan" onchange="toggleActuator('fan', this.checked)">
+                                <input type="checkbox" id="swN" onchange="toggleActuator('n', this.checked)">
                                 <span class="slider"></span>
                             </label>
                         </div>
 
                         <div class="actuator-card">
                             <div>
-                                <div class="actuator-title">Full Spektrum Büyüme LED</div>
-                                <div class="actuator-subtitle" id="lightSub">Röle 3: Aktif (Gündüz)</div>
+                                <div class="actuator-title">Tüp 2: Fosfor Tuzu</div>
+                                <div class="actuator-subtitle" id="subP">Dozaj Pompası Pasif</div>
                             </div>
                             <label class="switch">
-                                <input type="checkbox" id="switchLight" checked onchange="toggleActuator('light', this.checked)">
+                                <input type="checkbox" id="swP" onchange="toggleActuator('p', this.checked)">
                                 <span class="slider"></span>
                             </label>
                         </div>
 
                         <div class="actuator-card">
                             <div>
-                                <div class="actuator-title">Ultrasonik Sisleyici (Mist)</div>
-                                <div class="actuator-subtitle" id="mistSub">Röle 4: Beklemede</div>
+                                <div class="actuator-title">Tüp 3: Potasyum Tuzu</div>
+                                <div class="actuator-subtitle" id="subK">Dozaj Pompası Pasif</div>
                             </div>
                             <label class="switch">
-                                <input type="checkbox" id="switchMist" onchange="toggleActuator('mist', this.checked)">
+                                <input type="checkbox" id="swK" onchange="toggleActuator('k', this.checked)">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="actuator-card">
+                            <div>
+                                <div class="actuator-title">Işıklandırma LED'i</div>
+                                <div class="actuator-subtitle" id="subLight">Açık (TSL2591 Eşik)</div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="swLight" checked onchange="toggleActuator('light', this.checked)">
                                 <span class="slider"></span>
                             </label>
                         </div>
                     </div>
                 </div>
 
-                <!-- Chart & AI Diagnosis Split -->
+                <!-- Canlı Trend ve Hastalık Teşhisi -->
                 <div class="sim-dual-container">
                     <div class="chart-box">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                            <h4 style="font-size: 1.05rem;"><i class="fas fa-chart-line" style="color: var(--primary); margin-right: 0.5rem;"></i> Canlı Telemetri Trendi</h4>
-                            <span style="font-size: 0.75rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted);">Son 10 Okuma</span>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                            <h4 style="font-size:1rem;"><i class="fas fa-chart-line" style="color:var(--primary); margin-right:0.4rem;"></i> Nem, Sıcaklık & Fitlik Trendi</h4>
+                            <span style="font-size:0.75rem; font-family:'JetBrains Mono'; color:var(--text-muted);">Canlı Telemetri</span>
                         </div>
-                        <div style="height: 250px;">
-                            <canvas id="liveTelemetryChart"></canvas>
+                        <div style="height:240px;">
+                            <canvas id="telemetryChart"></canvas>
                         </div>
                     </div>
 
                     <div class="ai-diagnostic-box">
                         <div>
-                            <div style="display: flex; justify-content: space-between; align-items: center;">
-                                <h4 style="font-size: 1.05rem;"><i class="fas fa-brain" style="color: var(--primary); margin-right: 0.5rem;"></i> AI Hastalık & Risk Analizi</h4>
-                                <span class="live-tag"><i class="fas fa-microchip"></i> TinyML</span>
+                            <div style="display:flex; justify-content:space-between; align-items:center;">
+                                <h4 style="font-size:1rem;"><i class="fas fa-camera" style="color:var(--primary); margin-right:0.4rem;"></i> ESP32-CAM Hastalık Teşhisi</h4>
+                                <span class="tubitak-badge" style="font-size:0.7rem; margin:0;"><i class="fas fa-robot"></i> Günde 2 Kez</span>
                             </div>
-                            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.4rem;">
-                                İzlenen bitki türünü seçin; yapay zeka mevcut sensör verilerini ideal agronomik eşiklerle karşılaştırsın.
+                            <p style="font-size:0.8rem; color:var(--text-muted); margin-top:0.4rem;">
+                                Sunumdaki algoritma akışına göre bitki fotoğrafı veri tabanından taranır, semptomlar belirlenip olası tedavi başlatılır.
                             </p>
-
-                            <div class="plant-selector">
-                                <div class="plant-btn selected" onclick="selectPlant('tomato', this)">
-                                    <h6>🍅 Domates</h6>
-                                    <span>Nem %60-70 | 22-26°C</span>
-                                </div>
-                                <div class="plant-btn" onclick="selectPlant('strawberry', this)">
-                                    <h6>🍓 Çilek</h6>
-                                    <span>Nem %65-75 | 18-24°C</span>
-                                </div>
-                                <div class="plant-btn" onclick="selectPlant('basil', this)">
-                                    <h6>🌿 Fesleğen</h6>
-                                    <span>Nem %50-60 | 20-25°C</span>
-                                </div>
-                                <div class="plant-btn" onclick="selectPlant('orchid', this)">
-                                    <h6>🪴 Orkide</h6>
-                                    <span>Nem %55-65 | 21-27°C</span>
-                                </div>
-                            </div>
                         </div>
 
-                        <div class="ai-result-card" id="aiResultCard">
-                            <div class="ai-score">
-                                <span style="font-weight: 700; font-size: 0.9rem;" id="aiDiagnosisTitle">🌱 Mükemmel Büyüme Sağlığı</span>
-                                <span class="ai-score-badge" id="aiScoreBadge">%97 Güven</span>
+                        <div style="background:var(--bg-card); border-radius:12px; padding:1.2rem; border-left:4px solid var(--danger); margin-top:1rem;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+                                <strong style="font-size:0.92rem; color:var(--danger);"><i class="fas fa-exclamation-triangle"></i> Kök Çürümesi Erken Tespiti</strong>
+                                <span style="font-size:0.75rem; font-weight:800; font-family:'JetBrains Mono'; color:var(--danger);">%94 Eşleşme</span>
                             </div>
-                            <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;" id="aiDiagnosisDesc">
-                                Toprak nemi ve ortam ısısı seçilen bitkinin fotosentez eşikleriyle tam uyumlu. Kök mantarı veya susuzluk stresi riski bulunmuyor.
+                            <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5;">
+                                Aşırı nem ve toprak kök havalandırması yetersizliği saptandı. <em>Otonom sulama durduruldu, fosfor tuzu desteği ve kuruma periyodu önerildi.</em>
                             </p>
+                            <button class="btn-primary" style="margin-top:0.8rem; padding:0.4rem 0.9rem; font-size:0.78rem;" onclick="showToast('Otonom tedavi protokolü devreye alındı!')">
+                                <i class="fas fa-medkit"></i> Tedaviye Başla
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1795,649 +1200,297 @@
         </div>
     </section>
 
-    <!-- PROJE ÖZELLİKLERİ SECTION (BENTO GRID) -->
-    <section class="section-padding" id="features">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">
-                    <i class="fas fa-award"></i>
-                    <span>Üstün Mühendislik Standartları</span>
-                </div>
-                <h2 class="section-title">Neden <span class="gradient-text">Plantelligence?</span></h2>
-                <p class="section-subtitle">
-                    Geleneksel kör sulama ve zaman saatli basit sistemlerin ötesinde; tam otonom, sensör füzyonlu ve yapay zeka odaklı kapalı devre sera mimarisi.
-                </p>
-            </div>
-
-            <div class="bento-grid">
-                <!-- Bento 1 -->
-                <div class="bento-card bento-span-2">
-                    <div class="bento-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>Otonom Kapalı Devre Karar Mekanizması</h3>
-                    <p>
-                        Deneyap Kart üzerindeki çift çekirdekli işlemci, toprak nem sensörü ve DHT22 telemetrisini sürekli filtreler. Eşik değer sapmalarında insan müdahalesine gerek kalmadan mikrosaniyeler içinde damla sulamayı tetikler, aşırı sulamayı önler ve kök çürümesini tamamen engeller.
-                    </p>
-                </div>
-
-                <!-- Bento 2 -->
-                <div class="bento-card">
-                    <div class="bento-icon">
-                        <i class="fas fa-hand-holding-water"></i>
-                    </div>
-                    <h3>%70 Su Tasarrufu</h3>
-                    <p>
-                        Zaman odaklı değil, toprağın gerçek osmotik su ihtiyacına göre nabız sulama (pulse irrigation) yaparak tatlı su kaynaklarını korur.
-                    </p>
-                </div>
-
-                <!-- Bento 3 -->
-                <div class="bento-card">
-                    <div class="bento-icon">
-                        <i class="fas fa-camera"></i>
-                    </div>
-                    <h3>ESP32-CAM Görsel Spektrum Analizi</h3>
-                    <p>
-                        Entegre OV2640 optik sensör ve yerel yapay zeka filtresi, yaprak sararmalarını ve mantar lekelerini gözle görülür hale gelmeden önce tespit eder.
-                    </p>
-                </div>
-
-                <!-- Bento 4 -->
-                <div class="bento-card">
-                    <div class="bento-icon">
-                        <i class="fas fa-wifi"></i>
-                    </div>
-                    <h3>Çok Katmanlı IoT & MQTT Köprüsü</h3>
-                    <p>
-                        Wi-Fi ve MQTT hafif protokolü sayesinde yerel ağda kesintisiz telemetri aktarımı. İnternet kopsa dahi Deneyap Kart yerel hafızasındaki kurallarla çalışmaya devam eder.
-                    </p>
-                </div>
-
-                <!-- Bento 5 -->
-                <div class="bento-card">
-                    <div class="bento-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Donanımsal Koruma & Güvenlik</h3>
-                    <p>
-                        Optokuplör izoleli 4 kanallı röle ünitesi ve ters akım korumasıyla pompa ve yüksek akımlı eyleyiciler ana işlemciden tamamen elektriksel olarak izoledir.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Karşılaştırma Tablosu -->
-            <div style="margin-top: 4.5rem;">
-                <div class="section-header" style="margin-bottom: 2rem;">
-                    <h3 style="font-size: 1.8rem;">Piyasadaki Çözümlerle Karşılaştırma</h3>
-                </div>
-                <div class="table-responsive">
-                    <table class="comparison-table">
-                        <thead>
-                            <tr>
-                                <th>Özellik / Yetenek</th>
-                                <th class="highlight-col"><i class="fas fa-seedling"></i> Plantelligence</th>
-                                <th>Basit Zaman Ayarlı Sistemler</th>
-                                <th>Geleneksel Manuel Bakım</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Otonom Karar & Dinamik Tepki</td>
-                                <td class="highlight-col"><i class="fas fa-check" style="color: var(--primary);"></i> Tam Otonom (Sensör Füzyonlu)</td>
-                                <td><i class="fas fa-times" style="color: var(--danger);"></i> Sadece Sabit Saat Dilimi</td>
-                                <td><i class="fas fa-times" style="color: var(--danger);"></i> İnsan Takibine Bağlı</td>
-                            </tr>
-                            <tr>
-                                <td>Su Tüketim Verimliliği</td>
-                                <td class="highlight-col"><i class="fas fa-check" style="color: var(--primary);"></i> %70 Tasarruf (Toprak Nemi Odaklı)</td>
-                                <td><i class="fas fa-minus" style="color: var(--accent);"></i> %20 (Kör sulama riski yüksek)</td>
-                                <td><i class="fas fa-times" style="color: var(--danger);"></i> Aşırı / Düzensiz Tüketim</td>
-                            </tr>
-                            <tr>
-                                <td>Hastalık & Stres Teşhisi</td>
-                                <td class="highlight-col"><i class="fas fa-check" style="color: var(--primary);"></i> Yapay Zeka & Erken Uyarı</td>
-                                <td><i class="fas fa-times" style="color: var(--danger);"></i> Yok</td>
-                                <td><i class="fas fa-times" style="color: var(--danger);"></i> Genellikle Geç Fark Edilir</td>
-                            </tr>
-                            <tr>
-                                <td>Çevrimdışı (Offline) Güvenilirlik</td>
-                                <td class="highlight-col"><i class="fas fa-check" style="color: var(--primary);"></i> Deneyap Kart Yerel Bellek Koruması</td>
-                                <td><i class="fas fa-minus" style="color: var(--accent);"></i> Mekanik Pil Bağımlı</td>
-                                <td><i class="fas fa-times" style="color: var(--danger);"></i> Unutulma Riski Yüksek</td>
-                            </tr>
-                            <tr>
-                                <td>Gerçek Zamanlı Web & Mobil Arayüz</td>
-                                <td class="highlight-col"><i class="fas fa-check" style="color: var(--primary);"></i> Canlı Telemetri & Webhook Entegrasyonu</td>
-                                <td><i class="fas fa-times" style="color: var(--danger);"></i> Yok</td>
-                                <td><i class="fas fa-times" style="color: var(--danger);"></i> Yok</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- TEKNOLOJİ SECTION -->
-    <section class="section-padding" id="tech">
+    <!-- DONANIM, CAD & DEVRE SECTION -->
+    <section class="section-padding" id="hardware">
         <div class="container">
             <div class="section-header">
                 <div class="section-badge">
                     <i class="fas fa-microchip"></i>
-                    <span>Donanım ve Yazılım Mimarisi</span>
+                    <span>TÜBİTAK 2209-A Donanım Mimarisi</span>
                 </div>
-                <h2 class="section-title">Kullandığımız <span class="gradient-text">Teknolojiler</span></h2>
+                <h2 class="section-title">Akıllı Saksı 3D CAD ve <span class="gradient-text">Devre Şeması</span></h2>
                 <p class="section-subtitle">
-                    Gömülü sistemler, IoT haberleşme protokolleri ve web teknolojilerinin mükemmel sinerjisi.
+                    SolidWorks / Tinkercad ortamında tasarlanan akıllı saksı gövdesi, NPK dozajlama kalkanı ve Deneyap Kart entegrasyonu.
                 </p>
             </div>
 
-            <div class="tech-grid">
-                <!-- Tech 1 -->
-                <div class="tech-card">
-                    <div>
-                        <div class="tech-card-header">
-                            <div class="tech-badge-icon">
-                                <i class="fas fa-microchip"></i>
-                            </div>
-                            <div>
-                                <h4 style="font-size: 1.15rem;">Deneyap Kart</h4>
-                                <span style="font-size: 0.8rem; color: var(--text-muted);">Yerli Gömülü Çekirdek</span>
-                            </div>
-                        </div>
-                        <p style="font-size: 0.88rem; color: var(--text-muted);">
-                            Dual-Core 240MHz işlemcisi, entegre Wi-Fi/BLE bağlantısı ve zengin I/O portlarıyla sera kontrol merkezinin beynidir.
+            <div class="media-showcase-grid">
+                <!-- CAD Card -->
+                <div class="media-card">
+                    <img src="assets/3d-cad-pot.png" alt="Akıllı Saksı 3D CAD Modeli" class="media-card-img" style="object-fit: contain;">
+                    <div class="media-card-body">
+                        <div class="media-badge">3D Mekanik Tasarım</div>
+                        <h3 style="font-size:1.2rem; margin-bottom:0.6rem;">Özel Üretim Akıllı Saksı</h3>
+                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">
+                            Bitkiyi 7/24 odak noktasında tutan ayarlanabilir ESP32-CAM kamera kolu, yan gövdeye entegre 3 tüplü NPK besin enjeksiyon kanalları ve alt su tahliye haznesi.
                         </p>
-                        <ul>
-                            <li>240 MHz Tensilica LX6 İşlemci</li>
-                            <li>Entegre Wi-Fi (802.11 b/g/n) & BLE 4.2</li>
-                            <li>Donanımsal ADC, I2C, SPI ve PWM</li>
-                            <li>FreeRTOS çok görevli çekirdek desteği</li>
-                        </ul>
                     </div>
-                    <button class="tech-detail-btn" onclick="openTechModal('deneyap')">
-                        <i class="fas fa-info-circle"></i> Teknik Spesifikasyon
-                    </button>
                 </div>
 
-                <!-- Tech 2 -->
-                <div class="tech-card">
-                    <div>
-                        <div class="tech-card-header">
-                            <div class="tech-badge-icon" style="color: #0284c7;">
-                                <i class="fas fa-satellite-dish"></i>
-                            </div>
-                            <div>
-                                <h4 style="font-size: 1.15rem;">Sensör Matrisi</h4>
-                                <span style="font-size: 0.8rem; color: var(--text-muted);">Hassas Telemetri Katmanı</span>
-                            </div>
-                        </div>
-                        <p style="font-size: 0.88rem; color: var(--text-muted);">
-                            Toprak ve hava dinamiğini anlık ölçen korozyona dayanıklı kapasitif sensör kümesi.
+                <!-- Circuit Card -->
+                <div class="media-card">
+                    <img src="assets/circuit-diagram.png" alt="Deneyap Kart Sensör Bağlantı Şeması" class="media-card-img" style="object-fit: contain;">
+                    <div class="media-card-body">
+                        <div class="media-badge">Elektronik Mimari</div>
+                        <h3 style="font-size:1.2rem; margin-bottom:0.6rem;">Deneyap Kart & 8 Sensör Matrisi</h3>
+                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">
+                            MAX485 ile RS485 NPK sensörü, DFRobot SEN0161 analog pH probu, I2C üzerinden TSL2591, BMP280, CCS811 ve tek hatlı DHT11 / FC-28 toprak nemi entegrasyonu.
                         </p>
-                        <ul>
-                            <li>Kapasitif Toprak Nemi (V1.2 - Oksitlenmez)</li>
-                            <li>DHT22 Dijital Sıcaklık & Hava Nemi</li>
-                            <li>BH1750 I2C Dijital Ortam Işık Sensörü</li>
-                            <li>Analog / Dijital Su Seviye Şamandırası</li>
-                        </ul>
                     </div>
-                    <button class="tech-detail-btn" onclick="openTechModal('sensors')">
-                        <i class="fas fa-info-circle"></i> Sensör Detayları
-                    </button>
-                </div>
-
-                <!-- Tech 3 -->
-                <div class="tech-card">
-                    <div>
-                        <div class="tech-card-header">
-                            <div class="tech-badge-icon" style="color: #ea580c;">
-                                <i class="fab fa-python"></i>
-                            </div>
-                            <div>
-                                <h4 style="font-size: 1.15rem;">Python & TinyML</h4>
-                                <span style="font-size: 0.8rem; color: var(--text-muted);">Yapay Zeka & Görüntü Analizi</span>
-                            </div>
-                        </div>
-                        <p style="font-size: 0.88rem; color: var(--text-muted);">
-                            Hafifletilmiş makine öğrenimi modelleriyle bitki hastalıkları teşhisi ve kestirimci bakım algoritmaları.
-                        </p>
-                        <ul>
-                            <li>TensorFlow Lite Quantized Modelleri</li>
-                            <li>OpenCV Kenar & Renk Histogramı Analizi</li>
-                            <li>Dinamik Eşik & Kestirimci Sulama</li>
-                            <li>Gömülü ve Uçta Hesaplama (Edge AI)</li>
-                        </ul>
-                    </div>
-                    <button class="tech-detail-btn" onclick="openTechModal('ai')">
-                        <i class="fas fa-info-circle"></i> AI Mimarisi
-                    </button>
-                </div>
-
-                <!-- Tech 4 -->
-                <div class="tech-card">
-                    <div>
-                        <div class="tech-card-header">
-                            <div class="tech-badge-icon" style="color: #10b981;">
-                                <i class="fas fa-network-wired"></i>
-                            </div>
-                            <div>
-                                <h4 style="font-size: 1.15rem;">Web Dashboard & MQTT</h4>
-                                <span style="font-size: 0.8rem; color: var(--text-muted);">İstemci ve İletişim</span>
-                            </div>
-                        </div>
-                        <p style="font-size: 0.88rem; color: var(--text-muted);">
-                            Hafif MQTT mesajlaşma köprüsü ve modern reaktif web arayüzü sayesinde her cihazdan kontrol.
-                        </p>
-                        <ul>
-                            <li>Chart.js Dinamik Zaman Serisi Akışı</li>
-                            <li>Leaflet Harita ve Coğrafi Telemetri</li>
-                            <li>REST API & WebSockets Desteği</li>
-                            <li>GitHub Pages Üzerinde Sunucusuz Yayın</li>
-                        </ul>
-                    </div>
-                    <button class="tech-detail-btn" onclick="openTechModal('web')">
-                        <i class="fas fa-info-circle"></i> Yazılım Detayları
-                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ROADMAP / AŞAMALAR SECTION -->
-    <section class="section-padding" id="roadmap">
+    <!-- ALGORİTMA & FİTLİK FONKSİYONU SECTION -->
+    <section class="section-padding" id="algorithm">
         <div class="container">
             <div class="section-header">
                 <div class="section-badge">
-                    <i class="fas fa-route"></i>
-                    <span>Geliştirme Süreci</span>
+                    <i class="fas fa-network-wired"></i>
+                    <span>TÜBİTAK Özgün Değer</span>
                 </div>
-                <h2 class="section-title">Proje <span class="gradient-text">Yol Haritası</span></h2>
+                <h2 class="section-title">Kullanılan <span class="gradient-text">Algoritma ve Karar Motoru</span></h2>
                 <p class="section-subtitle">
-                    Fikir aşamasından saha prototipine ve ticari ürün seviyesine uzanan disiplinli mühendislik adımlarımız.
+                    Günde 2 kere görsel yapay zeka hastalık analizi, saatte 1 kere Fitlik Fonksiyonu ile otonom sulama ve gübreleme döngüsü.
+                </p>
+            </div>
+
+            <div class="media-showcase-grid">
+                <div class="media-card">
+                    <img src="assets/algorithm-flowchart.png" alt="Algoritma Akış Şeması" class="media-card-img" style="object-fit: contain;">
+                    <div class="media-card-body">
+                        <div class="media-badge">Akış Şeması</div>
+                        <h3 style="font-size:1.2rem; margin-bottom:0.6rem;">Fitlik Fonksiyonu Tabanlı Karar Motoru</h3>
+                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6; margin-bottom:1rem;">
+                            Projede her sensör değeri için optimum büyüme noktası ($X_{opt}$) ve ağırlık katsayısı ($w$) belirlenmiştir:
+                        </p>
+                        <div style="background:var(--bg-base); padding:0.8rem; border-radius:10px; font-family:'JetBrains Mono'; font-size:0.82rem; color:var(--primary);">
+                            Fitlik = 100 - 100 * Σ [ (X - X_opt)² / X_opt ] * w
+                        </div>
+                    </div>
+                </div>
+
+                <div class="media-card">
+                    <img src="assets/fault-tolerance.png" alt="Sensör Arıza Düzeltme" class="media-card-img" style="object-fit: contain;">
+                    <div class="media-card-body">
+                        <div class="media-badge">Hata Toleransı</div>
+                        <h3 style="font-size:1.2rem; margin-bottom:0.6rem;">Sensör Arıza Tespiti ve Kalman Düzeltme</h3>
+                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">
+                            Sensörlerde anlık parazit, kopukluk veya uç değer sıçraması meydana geldiğinde sistem bunu algılar; geçmiş trend interpolasyonu ile düzeltilmiş veriyi kural motoruna iletir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DENEYSEL SONUÇLAR SECTION -->
+    <section class="section-padding" id="experiments">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Deneysel Doğrulama</span>
+                </div>
+                <h2 class="section-title">12 Haftalık <span class="gradient-text">Bitki Büyüme Deneyleri</span></h2>
+                <p class="section-subtitle">
+                    Akıllı saksı ve klasik saksı kontrol grupları arasında yürütülen 12 haftalık kontrollü deney sonuçları.
+                </p>
+            </div>
+
+            <div class="media-showcase-grid">
+                <div class="media-card">
+                    <img src="assets/growth-chart.png" alt="Büyüme Grafiği" class="media-card-img" style="object-fit: contain;">
+                    <div class="media-card-body">
+                        <div class="media-badge">Deneysel Veri (12 Hafta)</div>
+                        <h3 style="font-size:1.2rem; margin-bottom:0.6rem;">Akıllı Saksı ile Klasik Saksı Karşılaştırması</h3>
+                        <ul style="padding-left:1.2rem; font-size:0.88rem; color:var(--text-muted); line-height:1.8;">
+                            <li><strong>Bezelye Bitkisi:</strong> Akıllı saksıda <strong>75 cm</strong> boya ulaşırken, klasik saksıda 53 cm'de kalmıştır (<strong>%41.5 büyüme artışı</strong>).</li>
+                            <li><strong>Kaktüs:</strong> Akıllı saksıda <strong>13 cm</strong>, klasik saksıda 8 cm büyüme kaydedilmiştir (<strong>%62.5 büyüme artışı</strong>).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="media-card">
+                    <img src="assets/competitor-chart.png" alt="Rakip Karşılaştırması" class="media-card-img" style="object-fit: contain;">
+                    <div class="media-card-body">
+                        <div class="media-badge">Piyasa Analizi</div>
+                        <h3 style="font-size:1.2rem; margin-bottom:0.6rem;">Plantelligence vs. Rakip Ürünler</h3>
+                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">
+                            Piyasadaki akıllı saksılardan farklı olarak; 8 parametreli sensör ağı, 7/24 kamera, NPK besin dozajlama ve yapay zeka hastalık teşhisi yeteneklerini tek gövdede birleştiren tek yerli platformdur.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MOBİL UYGULAMA FIGMA PROTOTİPİ -->
+    <section class="section-padding" id="mobile-app">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Kullanıcı Deneyimi</span>
+                </div>
+                <h2 class="section-title">Mobil Uygulama <span class="gradient-text">Arayüzü (Figma)</span></h2>
+                <p class="section-subtitle">
+                    "Bitkileriniz Artık Cebinizde!" — Anlık bildirimler, canlı kamera akışı ve tek tıkla tedavi protokolleri.
+                </p>
+            </div>
+
+            <div class="media-card" style="max-width:980px; margin:0 auto;">
+                <img src="assets/mobile-ui.png" alt="Mobil Uygulama Figma Ekranları" style="width:100%; border-radius:14px; background:#121212;">
+            </div>
+        </div>
+    </section>
+
+    <!-- TÜBİTAK PROJE TAKVİMİ -->
+    <section class="section-padding" id="timeline">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>TÜBİTAK 2209-A İş Paketleri</span>
+                </div>
+                <h2 class="section-title">Proje Süreci ve <span class="gradient-text">İş Planı</span></h2>
+                <p class="section-subtitle">
+                    TÜBİTAK araştırma önerisinde taahhüt edilen ve başarıyla icra edilen 8 aşamalı proje takvimi.
                 </p>
             </div>
 
             <div class="timeline-grid">
                 <div class="timeline-card">
-                    <span class="timeline-status-badge badge-done">TAMAMLANDI</span>
-                    <div class="timeline-stage">Aşama 01</div>
-                    <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Fizibilite & Donanım Seçimi</h4>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                        Toprak nemi ve iklim sensörlerinin kalibrasyonu tamamlandı. Deneyap Kart ve optokuplör röle mimarisi belirlendi.
-                    </p>
+                    <div class="timeline-date">1 - 7 Ocak 2024</div>
+                    <h4 style="font-size:1.05rem;">Proje Planlama & Başlangıç</h4>
+                    <p style="font-size:0.82rem; color:var(--text-muted); margin-top:0.3rem;">Proje amacı, hedefler ve yöntemlerin belirlenmesi.</p>
                 </div>
 
                 <div class="timeline-card">
-                    <span class="timeline-status-badge badge-done">TAMAMLANDI</span>
-                    <div class="timeline-stage">Aşama 02</div>
-                    <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Gömülü Yazılım & Kapalı Devre</h4>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                        C++ ile FreeRTOS tabanlı sensör okuma ve otonom sulama algoritmaları prototip serada başarıyla test edildi.
-                    </p>
-                </div>
-
-                <div class="timeline-card" style="border-color: var(--primary);">
-                    <span class="timeline-status-badge badge-active">AKTİF GELİŞTİRME</span>
-                    <div class="timeline-stage">Aşama 03</div>
-                    <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem;">AI Teşhis & Web Platformu</h4>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                        İnteraktif telemetri dashboard'u, Chart.js canlı akış entegrasyonu ve yaprak hastalığı sınıflandırma modülü devreye alındı.
-                    </p>
+                    <div class="timeline-date">8 - 21 Ocak 2024</div>
+                    <h4 style="font-size:1.05rem;">Araştırma & Teknoloji Seçimi</h4>
+                    <p style="font-size:0.82rem; color:var(--text-muted); margin-top:0.3rem;">Sensör matrisi ve gömülü yazılım altyapısının seçimi.</p>
                 </div>
 
                 <div class="timeline-card">
-                    <span class="timeline-status-badge badge-future">PLANLANAN</span>
-                    <div class="timeline-stage">Aşama 04</div>
-                    <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem;">LoRaWAN & Endüstriyel Sera</h4>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                        Geniş ölçekli tarım alanları için LoRaWAN uzun mesafe kablosuz sensör ağı ve güneş paneli enerji bağımsızlığı entegrasyonu.
-                    </p>
+                    <div class="timeline-date">22 Ocak - 11 Şubat 2024</div>
+                    <h4 style="font-size:1.05rem;">Tasarım & Prototip Geliştirme</h4>
+                    <p style="font-size:0.82rem; color:var(--text-muted); margin-top:0.3rem;">3D CAD akıllı saksı tasarımı ve sensör prototipi.</p>
+                </div>
+
+                <div class="timeline-card">
+                    <div class="timeline-date">12 - 25 Şubat 2024</div>
+                    <h4 style="font-size:1.05rem;">Yazılım Geliştirme & AI</h4>
+                    <p style="font-size:0.82rem; color:var(--text-muted); margin-top:0.3rem;">Yapay zeka hastalık sınıflandırma ve telemetri motoru.</p>
+                </div>
+
+                <div class="timeline-card">
+                    <div class="timeline-date">26 Şubat - 17 Mart 2024</div>
+                    <h4 style="font-size:1.05rem;">Mobil Uygulama Geliştirme</h4>
+                    <p style="font-size:0.82rem; color:var(--text-muted); margin-top:0.3rem;">Mobil arayüz tasarımı ve veri entegrasyonu.</p>
+                </div>
+
+                <div class="timeline-card">
+                    <div class="timeline-date">18 Mart - 7 Nisan 2024</div>
+                    <h4 style="font-size:1.05rem;">Test & Sistem Optimizasyonu</h4>
+                    <p style="font-size:0.82rem; color:var(--text-muted); margin-top:0.3rem;">12 haftalık büyüme deneyleri ve hata ayıklama.</p>
+                </div>
+
+                <div class="timeline-card">
+                    <div class="timeline-date">8 - 21 Nisan 2024</div>
+                    <h4 style="font-size:1.05rem;">Final Prototipi</h4>
+                    <p style="font-size:0.82rem; color:var(--text-muted); margin-top:0.3rem;">Son prototipin tamamlanması ve sistemlerin gözden geçirilmesi.</p>
+                </div>
+
+                <div class="timeline-card">
+                    <div class="timeline-date">22 - 28 Nisan 2024</div>
+                    <h4 style="font-size:1.05rem;">Proje Raporu & Sunum</h4>
+                    <p style="font-size:0.82rem; color:var(--text-muted); margin-top:0.3rem;">TÜBİTAK proje raporunun hazırlanması ve sunumun tamamlanması.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- GALERİ SECTION -->
-    <section class="section-padding" id="gallery">
+    <!-- GELİŞTİRİCİ SECTION (SADECE TAHA CAN TUNÇ) -->
+    <section class="section-padding" id="developer">
         <div class="container">
             <div class="section-header">
                 <div class="section-badge">
-                    <i class="fas fa-images"></i>
-                    <span>Saha & Laboratuvar</span>
+                    <i class="fas fa-user-check"></i>
+                    <span>Proje Yürütücüsü</span>
                 </div>
-                <h2 class="section-title">Proje <span class="gradient-text">Görselleri</span></h2>
+                <h2 class="section-title">Geliştirici <span class="gradient-text">Profili</span></h2>
                 <p class="section-subtitle">
-                    Geliştirme aşamaları, sensör entegrasyonu ve akıllı sera prototipimizden kareler.
+                    Plantelligence projesinin donanım mimarisi, gömülü yazılımı, yapay zeka modelleri ve mekanik tasarımını hayata geçiren proje yürütücüsü.
                 </p>
             </div>
 
-            <div class="gallery-grid">
-                <div class="gallery-card">
-                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=800&auto=format&fit=crop" alt="Akıllı Sera Prototipi" loading="lazy">
-                    <div class="gallery-overlay">
-                        <h4>Kapalı Devre Akıllı Sera</h4>
-                        <p>Deneyap Kart kontrollü prototip yetiştirme kabini</p>
+            <div class="lead-profile-card">
+                <div class="profile-avatar-large">
+                    TC
+                </div>
+
+                <div>
+                    <div class="tubitak-badge">
+                        <i class="fas fa-star"></i> TÜBİTAK 2209-A Proje Yürütücüsü
                     </div>
-                </div>
-
-                <div class="gallery-card">
-                    <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?q=80&w=800&auto=format&fit=crop" alt="Sensör Entegrasyonu" loading="lazy">
-                    <div class="gallery-overlay">
-                        <h4>Hassas Damla Sulama</h4>
-                        <p>Kök bölgesine doğrudan su ve mineral iletimi</p>
+                    <h3 style="font-size: 2rem; margin-bottom: 0.3rem;">Taha Can Tunç</h3>
+                    <div style="font-size: 1rem; font-weight: 700; color: var(--primary); margin-bottom: 1rem;">
+                        Mekatronik Mühendisliği • Gömülü Sistemler, IoT & Yapay Zeka
                     </div>
-                </div>
-
-                <div class="gallery-card">
-                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop" alt="Gömülü Devre Tasarımı" loading="lazy">
-                    <div class="gallery-overlay">
-                        <h4>Gömülü Donanım & Röle Ünitesi</h4>
-                        <p>ESP32 ve optokuplör yalıtımlı kontrol kartı</p>
-                    </div>
-                </div>
-
-                <div class="gallery-card">
-                    <img src="https://images.unsplash.com/photo-1558441719-8b489c63f7d1?q=80&w=800&auto=format&fit=crop" alt="Yapay Zeka Analiz" loading="lazy">
-                    <div class="gallery-overlay">
-                        <h4>Yapay Zeka Bitki Taraması</h4>
-                        <p>OV2640 ile yaprak klorofil ve leke analizi</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- EKİP SECTION -->
-    <section class="section-padding" id="team">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">
-                    <i class="fas fa-users"></i>
-                    <span>Çok Disiplinli Mühendislik</span>
-                </div>
-                <h2 class="section-title">Geliştirici <span class="gradient-text">Ekibimiz</span></h2>
-                <p class="section-subtitle">
-                    Gömülü sistemler, yapay zeka, botanik bilimi ve yazılım mühendisliğini harmanlayan multidisipliner kadromuz.
-                </p>
-            </div>
-
-            <div class="team-grid">
-                <!-- Member 1: Emre Yazan -->
-                <div class="team-card">
-                    <div class="team-avatar">EY</div>
-                    <div class="team-details">
-                        <h4>Emre Yazan</h4>
-                        <div class="team-role">Takım Lideri & Proje Yöneticisi</div>
-                        <p class="team-bio">
-                            Proje mimarisinin koordinasyonu, saha testlerinin takibi ve ekipler arası stratejik iş akışlarının yönetimi.
-                        </p>
-                        <div class="team-tags">
-                            <span class="team-tag">Proje Yönetimi</span>
-                            <span class="team-tag">Stratejik Planlama</span>
-                            <span class="team-tag">Sistem Tasarımı</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Member 2: Eser Çamlıbel -->
-                <div class="team-card">
-                    <div class="team-avatar" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);">EÇ</div>
-                    <div class="team-details">
-                        <h4>Eser Çamlıbel</h4>
-                        <div class="team-role">Yazılım & IoT Mühendisi</div>
-                        <p class="team-bio">
-                            C++ mikrodenetleyici optimizasyonları, telemetri haberleşme protokolleri ve IoT bulut entegrasyonu.
-                        </p>
-                        <div class="team-tags">
-                            <span class="team-tag">C++</span>
-                            <span class="team-tag">IoT Protokolleri</span>
-                            <span class="team-tag">Gömülü Sistemler</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Member 3: Taha Can Tunç -->
-                <div class="team-card" style="border-color: var(--primary); box-shadow: var(--shadow-sm);">
-                    <div class="team-avatar" style="background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);">TC</div>
-                    <div class="team-details">
-                        <div style="display: flex; align-items: center; justify-content: space-between;">
-                            <h4>Taha Can Tunç</h4>
-                            <a href="https://nothingmantr.github.io/Taha-Can-Tunc/" target="_blank" title="Portfolyo" style="color: var(--primary);"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                        <div class="team-role">Gömülü Sistemler & Yapay Zeka Uzmanı</div>
-                        <p class="team-bio">
-                            Deneyap Kart ve mikrodenetleyici programlama, sensör füzyonu, makine öğrenimi modelleri ve görüntü işleme algoritmaları.
-                        </p>
-                        <div class="team-tags">
-                            <span class="team-tag">Deneyap Kart</span>
-                            <span class="team-tag">C/C++</span>
-                            <span class="team-tag">Python & ML</span>
-                            <span class="team-tag">Linux</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Member 4: Ali Kerem Özfidan -->
-                <div class="team-card">
-                    <div class="team-avatar" style="background: linear-gradient(135deg, #854d0e 0%, #ca8a04 100%);">AK</div>
-                    <div class="team-details">
-                        <h4>Ali Kerem Özfidan</h4>
-                        <div class="team-role">Botanik & Tarım Teknolojileri Uzmanı</div>
-                        <p class="team-bio">
-                            Bitki fizyolojisi, toprak besin parametreleri, sulama eşikleri ve tarımsal verilerin biyolojik modellemesi.
-                        </p>
-                        <div class="team-tags">
-                            <span class="team-tag">Bitki Fizyolojisi</span>
-                            <span class="team-tag">Toprak Kimyası</span>
-                            <span class="team-tag">Biyomodel</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Member 5: Taha Ramazan Lim -->
-                <div class="team-card">
-                    <div class="team-avatar" style="background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);">TR</div>
-                    <div class="team-details">
-                        <h4>Taha Ramazan Lim</h4>
-                        <div class="team-role">Donanım & Elektronik Tasarım</div>
-                        <p class="team-bio">
-                            Sensör devre kartı tasarımı, güç dağıtımı, röle üniteleri izolasyonu ve mekanik prototip üretimi.
-                        </p>
-                        <div class="team-tags">
-                            <span class="team-tag">Elektronik Devre</span>
-                            <span class="team-tag">PCB Tasarımı</span>
-                            <span class="team-tag">Prototip Üretim</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Member 6: Ahmet Öztürk -->
-                <div class="team-card">
-                    <div class="team-avatar" style="background: linear-gradient(135deg, #db2777 0%, #be185d 100%);">AÖ</div>
-                    <div class="team-details">
-                        <h4>Ahmet Öztürk</h4>
-                        <div class="team-role">Full Stack Web Geliştirici</div>
-                        <p class="team-bio">
-                            Web dashboard arayüzü, Chart.js telemetri görselleştirmeleri, RESTful servisler ve bulut veritabanı yönetimi.
-                        </p>
-                        <div class="team-tags">
-                            <span class="team-tag">Frontend & UI/UX</span>
-                            <span class="team-tag">Chart.js</span>
-                            <span class="team-tag">REST API</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- İLETİŞİM & HARİTA SECTION -->
-    <section class="section-padding" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">
-                    <i class="fas fa-paper-plane"></i>
-                    <span>Bağlantıda Kalın</span>
-                </div>
-                <h2 class="section-title">Bize <span class="gradient-text">Ulaşın</span></h2>
-                <p class="section-subtitle">
-                    Proje hakkında sorularınız, akademik iş birlikleri veya sera otomasyonu talepleriniz için bize yazabilirsiniz.
-                </p>
-            </div>
-
-            <div class="contact-grid">
-                <!-- Contact Form -->
-                <div class="contact-card">
-                    <h3 style="font-size: 1.4rem; margin-bottom: 1.5rem;">Mesaj Gönderin</h3>
-                    <form id="contactForm" onsubmit="handleContactSubmit(event)">
-                        <div class="form-group">
-                            <label for="name">Adınız Soyadınız</label>
-                            <input type="text" id="name" class="form-control" placeholder="Adınız Soyadınız" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">E-posta Adresiniz</label>
-                            <input type="email" id="email" class="form-control" placeholder="adiniz@example.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Mesajınız</label>
-                            <textarea id="message" rows="4" class="form-control" placeholder="Projeniz veya sorunuz hakkında detay verin..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
-                            <i class="fas fa-paper-plane"></i> Mesajı Gönder
-                        </button>
-                    </form>
-                </div>
-
-                <!-- Contact Info & Leaflet Map -->
-                <div class="contact-card">
-                    <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">İletişim Bilgileri</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">
-                        Plantelligence Ar-Ge Laboratuvarı ve Açık Kaynak Geliştirici Topluluğu.
+                    <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.7;">
+                        Manisa Celal Bayar Üniversitesi Mekatronik Mühendisliği öğrencisi. C/C++, Python, Deneyap Kart, mikrokontrolör programlama, sensör füzyonu, yapay zeka tabanlı görüntü işleme ve açık kaynak Linux sistem geliştirme konularında çalışmalarını sürdürmektedir. Plantelligence projesinin 3D CAD tasarımı, elektronik devre dizilimi, Fitlik Fonksiyonu algoritması ve tüm web/mobil telemetri entegrasyonunu tek başına yürütmüştür.
                     </p>
 
-                    <ul class="contact-info-list">
-                        <li class="contact-info-item">
-                            <div class="contact-icon-bubble">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div>
-                                <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Konum</div>
-                                <strong>Manisa / Türkiye</strong>
-                            </div>
-                        </li>
-                        <li class="contact-info-item">
-                            <div class="contact-icon-bubble">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>
-                                <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">E-posta</div>
-                                <strong>tcttaha@gmail.com</strong>
-                            </div>
-                        </li>
-                        <li class="contact-info-item">
-                            <div class="contact-icon-bubble">
-                                <i class="fab fa-github"></i>
-                            </div>
-                            <div>
-                                <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">GitHub Reposu</div>
-                                <a href="https://github.com/NothingManTR/Plantelligence" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 700;">github.com/NothingManTR/Plantelligence</a>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <!-- Leaflet Container -->
-                    <div id="contactMap"></div>
+                    <div class="profile-links">
+                        <a href="https://nothingmantr.github.io/Taha-Can-Tunc/" target="_blank" class="profile-btn">
+                            <i class="fas fa-globe"></i> Portfolyo Web Sitesi
+                        </a>
+                        <a href="https://github.com/NothingManTR" target="_blank" class="profile-btn">
+                            <i class="fab fa-github"></i> GitHub (@NothingManTR)
+                        </a>
+                        <a href="https://www.linkedin.com/in/taha-can-tun%C3%A7-454313275/" target="_blank" class="profile-btn">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="mailto:tcttaha@gmail.com" class="profile-btn">
+                            <i class="fas fa-envelope"></i> tcttaha@gmail.com
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="#hero" class="brand">
-                        <div class="brand-icon">
-                            <i class="fas fa-seedling"></i>
-                        </div>
-                        <span>Plantelligence</span>
-                    </a>
-                    <p>
-                        Yapay zeka ve gömülü IoT teknolojileriyle sürdürülebilir, otonom ve su tasarruflu yeni nesil tarım otomasyon ekosistemi.
-                    </p>
-                </div>
-
-                <div class="footer-col">
-                    <h5>Hızlı Menü</h5>
-                    <ul>
-                        <li><a href="#hero">Ana Sayfa</a></li>
-                        <li><a href="#simulation">Canlı Simülatör</a></li>
-                        <li><a href="#features">Özellikler</a></li>
-                        <li><a href="#tech">Teknoloji</a></li>
-                        <li><a href="#team">Ekip</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h5>Açık Kaynak</h5>
-                    <ul>
-                        <li><a href="https://github.com/NothingManTR/Plantelligence" target="_blank">GitHub Reposu</a></li>
-                        <li><a href="https://github.com/NothingManTR/Plantelligence/issues" target="_blank">Hata Bildirimi (Issues)</a></li>
-                        <li><a href="https://nothingmantr.github.io/Taha-Can-Tunc/" target="_blank">Taha Can Tunç Portfolyo</a></li>
-                        <li><a href="https://github.com/NothingManTR" target="_blank">GitHub Profili</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h5>Donanım Desteği</h5>
-                    <ul>
-                        <li><a href="https://deneyapkart.org/" target="_blank">Deneyap Kart</a></li>
-                        <li><a href="https://www.espressif.com/" target="_blank">Espressif ESP32</a></li>
-                        <li><a href="https://www.tensorflow.org/lite" target="_blank">TensorFlow Lite</a></li>
-                        <li><a href="https://mqtt.org/" target="_blank">MQTT Protokolü</a></li>
-                    </ul>
-                </div>
+    <footer style="background:var(--bg-card); border-top:1px solid var(--border-card); padding:3.5rem 0 2rem 0; margin-top:5rem;">
+        <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem;">
+            <div>
+                <a href="#hero" class="brand" style="margin-bottom:0.5rem;">
+                    <div class="brand-icon"><i class="fas fa-seedling"></i></div>
+                    <span>Plantelligence</span>
+                </a>
+                <p style="font-size:0.85rem; color:var(--text-muted); max-width:450px;">
+                    TÜBİTAK 2209-A Programı Kapsamında Geliştirilen Yapay Zeka Destekli Otonom Akıllı Saksı Sistemi.
+                </p>
             </div>
 
-            <div class="footer-bottom">
-                <div>
-                    &copy; 2025 - 2026 Plantelligence Team. Tüm hakları saklıdır. MIT Lisansı ile açık kaynak olarak sunulmuştur.
-                </div>
-                <div>
-                    Doğa ve Gelecek İçin 💚 ile Tasarlandı.
-                </div>
+            <div style="font-size:0.85rem; color:var(--text-muted); text-align:right;">
+                <div>&copy; 2024 - 2026 <strong>Taha Can Tunç</strong>. Tüm hakları saklıdır.</div>
+                <div style="margin-top:0.3rem;">MIT Lisansı ile açık kaynak olarak sunulmuştur.</div>
             </div>
         </div>
     </footer>
 
-    <!-- TECHNICAL DETAILS MODAL -->
-    <div class="modal" id="techModal" onclick="closeTechModal(event)">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <button class="modal-close" onclick="closeTechModal()">&times;</button>
-            <div id="modalBody">
-                <!-- Dynamically injected content -->
-            </div>
-        </div>
-    </div>
-
-    <!-- TOAST NOTIFICATION -->
+    <!-- TOAST -->
     <div class="toast" id="toast">
         <i class="fas fa-check-circle" style="font-size: 1.3rem;"></i>
         <span id="toastMsg">İşlem başarıyla gerçekleştirildi.</span>
     </div>
 
-    <!-- LEAFLET JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
     <!-- SCRIPTS -->
     <script>
-        /* -----------------------------------------------------------
-           TEMA YÖNETİMİ (LIGHT / DARK MODE)
-        ----------------------------------------------------------- */
+        // Tema Yönetimi
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = themeToggle.querySelector('i');
 
@@ -2464,504 +1517,164 @@
             const isDark = document.body.classList.contains('dark-mode');
             applyTheme(!isDark);
             localStorage.setItem('plantelligence_theme', !isDark ? 'dark' : 'light');
-            updateChartTheme();
         });
 
-        /* -----------------------------------------------------------
-           MOBİL MENÜ YÖNETİMİ
-        ----------------------------------------------------------- */
+        // Mobil Menü
         const mobileToggle = document.getElementById('mobileToggle');
         const mobileMenu = document.getElementById('mobileMenu');
+        mobileToggle.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+        function closeMobileMenu() { mobileMenu.classList.remove('open'); }
 
-        mobileToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('open');
-            const icon = mobileToggle.querySelector('i');
-            if (mobileMenu.classList.contains('open')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-
-        function closeMobileMenu() {
-            mobileMenu.classList.remove('open');
-            const icon = mobileToggle.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
-
-        /* -----------------------------------------------------------
-           AKTİF MENÜ İŞARETÇİSİ (SCROLL SPY)
-        ----------------------------------------------------------- */
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-links .nav-item');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 120;
-                if (window.scrollY >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        /* -----------------------------------------------------------
-           SİMÜLASYON MOTORU VE VERİ YÖNETİMİ
-        ----------------------------------------------------------- */
-        let simState = {
-            mode: 'auto', // 'auto' or 'manual'
-            moisture: 62.4,
-            temperature: 23.2,
-            humidity: 55.8,
-            lux: 14250,
-            ph: 6.35,
-            waterTank: 88,
+        // Simülasyon Durumu
+        let sim = {
+            mode: 'auto',
+            moist: 58.4,
+            temp: 22.8,
+            lux: 520,
+            ph: 6.38,
+            n: 42,
+            p: 28,
+            k: 35,
+            air: 48.2,
             pump: false,
-            fan: false,
-            light: true,
-            mist: false,
-            currentPlant: 'tomato'
+            n_pump: false,
+            p_pump: false,
+            k_pump: false,
+            light: true
         };
 
-        const plantProfiles = {
-            tomato: { name: 'Domates', minMoist: 55, maxMoist: 75, minTemp: 20, maxTemp: 28, optPh: 6.3 },
-            strawberry: { name: 'Çilek', minMoist: 65, maxMoist: 80, minTemp: 18, maxTemp: 25, optPh: 6.0 },
-            basil: { name: 'Fesleğen', minMoist: 45, maxMoist: 65, minTemp: 21, maxTemp: 29, optPh: 6.5 },
-            orchid: { name: 'Orkide', minMoist: 50, maxMoist: 68, minTemp: 20, maxTemp: 27, optPh: 5.8 }
-        };
-
-        // CHART.JS CANLI TELEMETRİ GRAFİĞİ
-        const chartCtx = document.getElementById('liveTelemetryChart').getContext('2d');
-        const telemetryChart = new Chart(chartCtx, {
+        // Chart.js Kurulumu
+        const chartCtx = document.getElementById('telemetryChart').getContext('2d');
+        const chart = new Chart(chartCtx, {
             type: 'line',
             data: {
-                labels: ['10s önce', '9s', '8s', '7s', '6s', '5s', '4s', '3s', '2s', 'Şimdi'],
+                labels: ['10s', '9s', '8s', '7s', '6s', '5s', '4s', '3s', '2s', 'Şimdi'],
                 datasets: [
                     {
                         label: 'Toprak Nemi (%)',
-                        data: [61.0, 61.5, 62.0, 61.8, 62.2, 62.5, 62.1, 62.4, 62.3, 62.4],
+                        data: [57, 57.5, 58, 58.2, 58.4, 58.1, 58.3, 58.5, 58.2, 58.4],
                         borderColor: '#16a34a',
-                        backgroundColor: 'rgba(22, 163, 74, 0.12)',
-                        borderWidth: 2.5,
+                        backgroundColor: 'rgba(22, 163, 74, 0.1)',
+                        borderWidth: 2,
                         fill: true,
-                        tension: 0.35,
-                        pointRadius: 3,
-                        pointHoverRadius: 6
+                        tension: 0.3
                     },
                     {
                         label: 'Sıcaklık (°C)',
-                        data: [23.5, 23.4, 23.3, 23.4, 23.2, 23.3, 23.1, 23.2, 23.3, 23.2],
+                        data: [22.5, 22.6, 22.7, 22.8, 22.8, 22.7, 22.8, 22.9, 22.8, 22.8],
                         borderColor: '#ea580c',
-                        backgroundColor: 'rgba(234, 88, 12, 0.08)',
-                        borderWidth: 2.5,
-                        fill: true,
-                        tension: 0.35,
-                        pointRadius: 3,
-                        pointHoverRadius: 6
+                        borderWidth: 2,
+                        tension: 0.3
                     }
                 ]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                        labels: {
-                            color: getComputedStyle(document.body).getPropertyValue('--text-main').trim() || '#333',
-                            font: { family: 'Plus Jakarta Sans', weight: '600' }
-                        }
-                    },
-                    tooltip: {
-                        mode: 'index',
-                        intersect: false
-                    }
-                },
+                plugins: { legend: { position: 'top' } },
                 scales: {
-                    x: {
-                        grid: { color: 'rgba(0,0,0,0.05)' },
-                        ticks: { color: '#888', font: { family: 'JetBrains Mono' } }
-                    },
-                    y: {
-                        grid: { color: 'rgba(0,0,0,0.05)' },
-                        ticks: { color: '#888', font: { family: 'JetBrains Mono' } }
-                    }
+                    x: { grid: { color: 'rgba(0,0,0,0.05)' } },
+                    y: { grid: { color: 'rgba(0,0,0,0.05)' } }
                 }
             }
         });
 
-        function updateChartTheme() {
-            const textColor = getComputedStyle(document.body).getPropertyValue('--text-main').trim();
-            telemetryChart.options.plugins.legend.labels.color = textColor;
-            telemetryChart.update();
+        function setSimMode(m) {
+            sim.mode = m;
+            document.getElementById('btnAutoMode').className = m === 'auto' ? 'btn-primary' : 'btn-outline';
+            document.getElementById('btnManualMode').className = m === 'manual' ? 'btn-primary' : 'btn-outline';
+            document.getElementById('actuatorModeInfo').textContent = m === 'auto' ? 'Otonom Fitlik Fonksiyonu Devrede (Saatlik Kontrol)' : 'Manuel Eyleyici Yönetimi Aktif';
+            showToast(m === 'auto' ? 'Otonom Algoritma Moduna Geçildi' : 'Manuel Kontrol Moduna Geçildi');
         }
 
-        // Mod Değişimi
-        function setSimMode(mode) {
-            simState.mode = mode;
-            const btnAuto = document.getElementById('btnAutoMode');
-            const btnManual = document.getElementById('btnManualMode');
-            const note = document.getElementById('actuatorNote');
-            const statusText = document.getElementById('simStatusText');
-
-            if (mode === 'auto') {
-                btnAuto.classList.add('active');
-                btnManual.classList.remove('active');
-                note.textContent = 'Mod: Otonom (Sensör tetiklemeli otomatik kontrol)';
-                statusText.textContent = 'Otonom AI Döngüsü Aktif • Eşik Değer Kontrolü Devrede';
-                showToast('Otonom Yapay Zeka Moduna Geçildi');
-            } else {
-                btnManual.classList.add('active');
-                btnAuto.classList.remove('active');
-                note.textContent = 'Mod: Manuel (Kullanıcı eyleyici tetiklemeleri)';
-                statusText.textContent = 'Manuel Müdahale Modu • Röleler Doğrudan Yönetiliyor';
-                showToast('Manuel Kontrol Modu Aktif');
-            }
-        }
-
-        // Manuel Eyleyici Tetikleme
         function toggleActuator(type, state) {
-            simState[type] = state;
+            sim[type] = state;
             if (type === 'pump') {
-                document.getElementById('pumpSub').textContent = state ? 'Röle 1: SULAMA AKTİF 💧' : 'Röle 1: Beklemede';
-                document.getElementById('pumpSub').style.color = state ? 'var(--primary)' : 'var(--text-muted)';
-                if (state) {
-                    simState.moisture = Math.min(95, simState.moisture + 8.5);
-                    simState.waterTank = Math.max(10, simState.waterTank - 1.2);
-                    showToast('Sulama pompası çalıştırıldı');
-                }
-            } else if (type === 'fan') {
-                document.getElementById('fanSub').textContent = state ? 'Röle 2: HAVALANDIRMA AÇIK 🌀' : 'Röle 2: Pasif';
-                document.getElementById('fanSub').style.color = state ? 'var(--info)' : 'var(--text-muted)';
-                if (state) {
-                    simState.temperature = Math.max(16, simState.temperature - 1.8);
-                    simState.humidity = Math.max(30, simState.humidity - 4.5);
-                    showToast('Havalandırma fanı devreye alındı');
-                }
+                document.getElementById('subPump').textContent = state ? 'SULAMA AKTİF 💧' : 'Beklemede';
+                if (state) { sim.moist = Math.min(95, sim.moist + 6.5); showToast('Su pompası sulama yapıyor'); }
+            } else if (type === 'n') {
+                document.getElementById('subN').textContent = state ? 'AZOT DOZAJLANIYOR' : 'Dozaj Pompası Pasif';
+                if (state) { sim.n = Math.min(80, sim.n + 5); showToast('Tüp 1: Azot (N) verildi'); }
+            } else if (type === 'p') {
+                document.getElementById('subP').textContent = state ? 'FOSFOR DOZAJLANIYOR' : 'Dozaj Pompası Pasif';
+                if (state) { sim.p = Math.min(80, sim.p + 4); showToast('Tüp 2: Fosfor (P) verildi'); }
+            } else if (type === 'k') {
+                document.getElementById('subK').textContent = state ? 'POTASYUM DOZAJLANIYOR' : 'Dozaj Pompası Pasif';
+                if (state) { sim.k = Math.min(80, sim.k + 4); showToast('Tüp 3: Potasyum (K) verildi'); }
             } else if (type === 'light') {
-                document.getElementById('lightSub').textContent = state ? 'Röle 3: IŞIK AÇIK ☀️' : 'Röle 3: Kapalı (Gece)';
-                simState.lux = state ? 15000 + Math.random() * 2000 : 250 + Math.random() * 100;
-            } else if (type === 'mist') {
-                document.getElementById('mistSub').textContent = state ? 'Röle 4: SİSLEME AKTİF 🌫️' : 'Röle 4: Beklemede';
-                if (state) {
-                    simState.humidity = Math.min(95, simState.humidity + 7.0);
-                    showToast('Ultrasonik sisleyici çalıştırıldı');
-                }
+                document.getElementById('subLight').textContent = state ? 'Açık (TSL2591)' : 'Kapalı';
+                sim.lux = state ? 540 : 120;
             }
             updateUI();
         }
 
-        // Bitki Türü Seçimi
-        function selectPlant(plantKey, elem) {
-            simState.currentPlant = plantKey;
-            document.querySelectorAll('.plant-btn').forEach(btn => btn.classList.remove('selected'));
-            elem.classList.add('selected');
-            runAiDiagnosis();
-            showToast(`${plantProfiles[plantKey].name} profili seçildi`);
-        }
-
-        // Yapay Zeka Teşhis Motoru
-        function runAiDiagnosis() {
-            const profile = plantProfiles[simState.currentPlant];
-            const titleElem = document.getElementById('aiDiagnosisTitle');
-            const scoreBadge = document.getElementById('aiScoreBadge');
-            const descElem = document.getElementById('aiDiagnosisDesc');
-            const resultCard = document.getElementById('aiResultCard');
-
-            let issues = [];
-
-            if (simState.moisture < profile.minMoist) {
-                issues.push(`Toprak nemi (%${simState.moisture.toFixed(1)}) eşiğin altında! Su stresi riski.`);
-            } else if (simState.moisture > profile.maxMoist) {
-                issues.push(`Aşırı nem saptandı (%${simState.moisture.toFixed(1)}). Kök havalandırması azalabilir.`);
-            }
-
-            if (simState.temperature < profile.minTemp) {
-                issues.push(`Sıcaklık düşük (${simState.temperature.toFixed(1)}°C). Büyüme yavaşlayabilir.`);
-            } else if (simState.temperature > profile.maxTemp) {
-                issues.push(`Yüksek sıcaklık (${simState.temperature.toFixed(1)}°C). Nem kaybı hızlanıyor.`);
-            }
-
-            if (issues.length === 0) {
-                titleElem.textContent = `🌱 Mükemmel Sağlık Durumu (${profile.name})`;
-                titleElem.style.color = 'var(--primary)';
-                scoreBadge.textContent = '%98 Sağlıklı';
-                scoreBadge.style.color = 'var(--primary)';
-                descElem.textContent = `${profile.name} için toprak nemi, sıcaklık ve pH seviyeleri optimum fotosentez aralığında seyrediyor.`;
-                resultCard.style.borderLeftColor = 'var(--primary)';
-            } else {
-                titleElem.textContent = `⚠️ Dikkat: Çevresel Stres Faktörü`;
-                titleElem.style.color = 'var(--accent)';
-                scoreBadge.textContent = issues.length === 1 ? '%76 Risk Skoru' : '%58 Kritik Eşik';
-                scoreBadge.style.color = 'var(--accent)';
-                descElem.innerHTML = issues.join('<br>') + '<br><em>Otonom döngü eşitleme gerçekleştiriyor...</em>';
-                resultCard.style.borderLeftColor = 'var(--accent)';
-            }
-        }
-
-        // Simülasyon Periyodik Güncelleme
         function simulationTick() {
-            const profile = plantProfiles[simState.currentPlant];
+            // Küçük doğal dalgalanma
+            sim.moist += (Math.random() - 0.5) * 0.3;
+            sim.temp += (Math.random() - 0.5) * 0.15;
+            sim.lux += (Math.random() - 0.5) * 8;
+            sim.moist -= 0.1; // Doğal kuruma
 
-            // Doğal çevresel dalgalanma (Jitter)
-            const moistNoise = (Math.random() - 0.5) * 0.4;
-            const tempNoise = (Math.random() - 0.5) * 0.2;
-            const humNoise = (Math.random() - 0.5) * 0.6;
-            const luxNoise = (Math.random() - 0.5) * 150;
-
-            simState.moisture += moistNoise;
-            simState.temperature += tempNoise;
-            simState.humidity += humNoise;
-            simState.lux += luxNoise;
-
-            // Zamanla doğal kuruma ve ısınma etkisi
-            simState.moisture -= 0.15;
-            if (simState.light) simState.temperature += 0.05;
-
-            // OTONOM MOD KARAR MEKANİZMASI
-            if (simState.mode === 'auto') {
-                // Toprak nemsizse otomatik sula
-                if (simState.moisture < profile.minMoist) {
-                    simState.pump = true;
-                    simState.moisture += 3.5;
-                    simState.waterTank = Math.max(5, simState.waterTank - 0.4);
-                    document.getElementById('switchPump').checked = true;
-                    document.getElementById('pumpSub').textContent = 'Röle 1: OTONOM SULAMA DEVREDE 💧';
-                    document.getElementById('pumpSub').style.color = 'var(--primary)';
-                } else if (simState.moisture > profile.maxMoist - 4) {
-                    simState.pump = false;
-                    document.getElementById('switchPump').checked = false;
-                    document.getElementById('pumpSub').textContent = 'Röle 1: Beklemede';
-                    document.getElementById('pumpSub').style.color = 'var(--text-muted)';
+            // OTONOM MOD KONTROLLERİ (Slide 7 formülü)
+            if (sim.mode === 'auto') {
+                if (sim.moist < 45) {
+                    sim.moist += 4;
+                    document.getElementById('swPump').checked = true;
+                    document.getElementById('subPump').textContent = 'OTONOM SULANIYOR 💧';
+                } else if (sim.moist > 65) {
+                    document.getElementById('swPump').checked = false;
+                    document.getElementById('subPump').textContent = 'Beklemede';
                 }
 
-                // Sıcaklık fazlaysa fanı aç
-                if (simState.temperature > profile.maxTemp) {
-                    simState.fan = true;
-                    simState.temperature -= 0.8;
-                    document.getElementById('switchFan').checked = true;
-                    document.getElementById('fanSub').textContent = 'Röle 2: OTONOM SOĞUTMA 🌀';
-                    document.getElementById('fanSub').style.color = 'var(--info)';
-                } else if (simState.temperature < profile.minTemp + 2) {
-                    simState.fan = false;
-                    document.getElementById('switchFan').checked = false;
-                    document.getElementById('fanSub').textContent = 'Röle 2: Pasif';
-                    document.getElementById('fanSub').style.color = 'var(--text-muted)';
+                if (sim.n < 30) {
+                    sim.n += 3;
+                    document.getElementById('swN').checked = true;
+                    document.getElementById('subN').textContent = 'OTONOM AZOT DOZAJI';
+                } else if (sim.n > 40) {
+                    document.getElementById('swN').checked = false;
+                    document.getElementById('subN').textContent = 'Dozaj Pompası Pasif';
                 }
             }
 
-            // Sınırlar
-            simState.moisture = Math.min(95, Math.max(20, simState.moisture));
-            simState.temperature = Math.min(40, Math.max(10, simState.temperature));
-            simState.humidity = Math.min(95, Math.max(25, simState.humidity));
+            // Fitlik Formülü: Fitlik = 100 - 100 * sum(...)
+            const optMoist = 60, optTemp = 23, optN = 45;
+            let penalty = (Math.pow(sim.moist - optMoist, 2) / optMoist) * 0.4 +
+                          (Math.pow(sim.temp - optTemp, 2) / optTemp) * 0.3 +
+                          (Math.pow(sim.n - optN, 2) / optN) * 0.3;
+            let fitScore = Math.max(0, Math.min(100, 100 - penalty));
+
+            document.getElementById('simFitScore').textContent = fitScore.toFixed(1) + ' / 100';
 
             updateUI();
-            updateChart();
-            runAiDiagnosis();
+
+            // Chart update
+            chart.data.datasets[0].data.shift();
+            chart.data.datasets[0].data.push(parseFloat(sim.moist.toFixed(1)));
+            chart.data.datasets[1].data.shift();
+            chart.data.datasets[1].data.push(parseFloat(sim.temp.toFixed(1)));
+            chart.update('none');
         }
 
         function updateUI() {
-            // Simülasyon Kartları
-            document.getElementById('valMoisture').textContent = simState.moisture.toFixed(1) + '%';
-            document.getElementById('valTemp').textContent = simState.temperature.toFixed(1) + '°C';
-            document.getElementById('valHumidity').textContent = simState.humidity.toFixed(1) + '%';
-            document.getElementById('valLux').textContent = Math.round(simState.lux).toLocaleString('tr-TR');
-            document.getElementById('valPh').textContent = simState.ph.toFixed(2);
-            document.getElementById('valWaterTank').textContent = Math.round(simState.waterTank) + '%';
+            document.getElementById('valMoist').textContent = sim.moist.toFixed(1) + '%';
+            document.getElementById('valTemp').textContent = sim.temp.toFixed(1) + '°C';
+            document.getElementById('valLux').textContent = Math.round(sim.lux) + ' lx';
+            document.getElementById('valPh').textContent = sim.ph.toFixed(2);
+            document.getElementById('valNpk').textContent = `${Math.round(sim.n)}-${Math.round(sim.p)}-${Math.round(sim.k)}`;
+            document.getElementById('valAir').textContent = sim.air.toFixed(1);
 
-            // Hero Mini Kartları
-            document.getElementById('heroMoisture').textContent = simState.moisture.toFixed(0) + '%';
-            document.getElementById('heroTemp').textContent = simState.temperature.toFixed(1) + '°C';
-            document.getElementById('heroPh').textContent = simState.ph.toFixed(1);
-            document.getElementById('heroLux').textContent = Math.round(simState.lux).toLocaleString('tr-TR') + ' lx';
-
-            // Renk ve durum sınıfları
-            const statusMoist = document.getElementById('statusMoisture');
-            if (simState.moisture < 40) {
-                statusMoist.textContent = 'Kritik Kuru';
-                statusMoist.className = 'telemetry-status status-critical';
-            } else if (simState.moisture > 80) {
-                statusMoist.textContent = 'Aşırı Nemli';
-                statusMoist.className = 'telemetry-status status-warning';
-            } else {
-                statusMoist.textContent = 'İdeal Nem';
-                statusMoist.className = 'telemetry-status status-optimal';
-            }
-        }
-
-        function updateChart() {
-            const dataMoist = telemetryChart.data.datasets[0].data;
-            const dataTemp = telemetryChart.data.datasets[1].data;
-
-            dataMoist.shift();
-            dataMoist.push(parseFloat(simState.moisture.toFixed(1)));
-
-            dataTemp.shift();
-            dataTemp.push(parseFloat(simState.temperature.toFixed(1)));
-
-            telemetryChart.update('none'); // Yumuşak animasyon
+            document.getElementById('heroMoist').textContent = sim.moist.toFixed(1) + '%';
+            document.getElementById('heroTemp').textContent = sim.temp.toFixed(1) + '°C';
+            document.getElementById('heroNpk').textContent = `N:${Math.round(sim.n)} P:${Math.round(sim.p)} K:${Math.round(sim.k)}`;
         }
 
         setInterval(simulationTick, 2000);
-
-        /* -----------------------------------------------------------
-           TEKNİK DETAY MODAL
-        ----------------------------------------------------------- */
-        const modalData = {
-            deneyap: {
-                title: "Deneyap Kart Mimari & Pinout",
-                icon: "fa-microchip",
-                content: `
-                    <h4>Teknik Özellikler:</h4>
-                    <p style="color:var(--text-muted); margin-bottom:1rem;">Türkiye'nin yerli teknoloji hamlesi kapsamında geliştirilen Deneyap Kart, seradaki tüm sensör ve eyleyici ağının ana beynidir.</p>
-                    <table style="width:100%; border-collapse:collapse; margin-bottom:1.5rem; font-size:0.9rem;">
-                        <tr style="border-bottom:1px solid var(--border-card);"><td style="padding:0.5rem 0; font-weight:700;">İşlemci</td><td>Dual Core Tensilica LX6 (240MHz)</td></tr>
-                        <tr style="border-bottom:1px solid var(--border-card);"><td style="padding:0.5rem 0; font-weight:700;">Kablosuz Bağlantı</td><td>Wi-Fi 802.11 b/g/n + Bluetooth 4.2 BLE</td></tr>
-                        <tr style="border-bottom:1px solid var(--border-card);"><td style="padding:0.5rem 0; font-weight:700;">Dahili Sensörler</td><td>6 Eksenli IMU (İvmeölçer & Jiroskop), Mikrofon</td></tr>
-                        <tr style="border-bottom:1px solid var(--border-card);"><td style="padding:0.5rem 0; font-weight:700;">I/O Kapasitesi</td><td>24x GPIO, 16x ADC, 2x DAC, SPI, I2C, UART</td></tr>
-                    </table>
-                    <h4>Gömülü FreeRTOS Görevleri:</h4>
-                    <ul style="padding-left:1.2rem; font-size:0.88rem; color:var(--text-muted);">
-                        <li><strong>Task_SensorPoll:</strong> Her 500ms'de sensör verilerini ADC/I2C üzerinden okur ve Kalman filtresinden geçirir.</li>
-                        <li><strong>Task_RelayControl:</strong> Otonom eşik değer denetimini yürütür ve 4 kanallı röle ünitesini PWM/Dijital sürer.</li>
-                        <li><strong>Task_MqttBridge:</strong> Wi-Fi üzerinden JSON telemetri paketlerini MQTT Broker'a yayınlar.</li>
-                    </ul>
-                `
-            },
-            sensors: {
-                title: "Sensör Matrisi & Kalibrasyon Eşikleri",
-                icon: "fa-satellite-dish",
-                content: `
-                    <h4>Kapasitif Toprak Nem Sensörü (v1.2):</h4>
-                    <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1rem;">Direnç tabanlı eski sensörlerin aksine korozyona uğramaz. Toprağın dielektrik geçirgenliğini frekans modülasyonu ile ölçer.</p>
-                    
-                    <h4>DHT22 Hassas Sıcaklık ve Nem Sensörü:</h4>
-                    <ul style="padding-left:1.2rem; font-size:0.88rem; color:var(--text-muted); margin-bottom:1rem;">
-                        <li>Sıcaklık Aralığı: -40°C ile +80°C arası (±0.5°C hassasiyet)</li>
-                        <li>Nem Aralığı: 0% ile 100% RH arası (±%2 hassasiyet)</li>
-                    </ul>
-
-                    <h4>BH1750 I2C Dijital Işık Sensörü:</h4>
-                    <p style="color:var(--text-muted); font-size:0.88rem;">1-65535 LUX ölçüm aralığı ile yapay aydınlatma ve gün ışığı sürelerini bitkinin lümen ihtiyacına göre otomatik dengeler.</p>
-                `
-            },
-            ai: {
-                title: "Yapay Zeka ve Hastalık Sınıflandırma",
-                icon: "fa-brain",
-                content: `
-                    <h4>TensorFlow Lite Edge AI Modeli:</h4>
-                    <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1rem;">Mobil ve gömülü ortamlarda çalışmak üzere quantize edilmiş (int8) derin öğrenme modeli.</p>
-                    <div style="background:var(--bg-base); padding:1rem; border-radius:10px; font-family:'JetBrains Mono'; font-size:0.82rem; margin-bottom:1rem;">
-                        Model Mimarisi: MobileNetV2-Lite (0.35x alpha)<br>
-                        Giriş Boyutu: 224x224x3 RGB<br>
-                        Çıkarım (Inference) Süresi: 68ms (Edge TPU / Dual Core)<br>
-                        Doğruluk (Top-1 Accuracy): %96.8
-                    </div>
-                    <h4>Teşhis Edilen Hastalık Örnekleri:</h4>
-                    <ul style="padding-left:1.2rem; font-size:0.88rem; color:var(--text-muted);">
-                        <li>Erken Yanıklık (Alternaria solani)</li>
-                        <li>Külleme Mantarı (Oidium neolycopersici)</li>
-                        <li>Demir & Azot Klorozu (Besin Eksikliği Taraması)</li>
-                    </ul>
-                `
-            },
-            web: {
-                title: "Web Dashboard & MQTT Bulut Köprüsü",
-                icon: "fa-network-wired",
-                content: `
-                    <h4>Mimari Özellikler:</h4>
-                    <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1rem;">İnternet tarayıcısı üzerinden ek bir sunucu kurulumuna ihtiyaç duymadan GitHub Pages üzerinde sunucusuz (serverless) çalışan yüksek performanslı telemetri platformu.</p>
-                    <ul style="padding-left:1.2rem; font-size:0.88rem; color:var(--text-muted);">
-                        <li><strong>Chart.js Realtime:</strong> Düşük bellek tüketimli zaman serisi telemetrisi.</li>
-                        <li><strong>Leaflet.js:</strong> İstasyon konumunu OpenStreetMap katmanında interaktif görselleştirme.</li>
-                        <li><strong>Local Persistence:</strong> Kullanıcı tercihleri ve aktif eyleyici durumlarının güvenli yerel önbellek yönetimi.</li>
-                    </ul>
-                `
-            }
-        };
-
-        function openTechModal(key) {
-            const data = modalData[key];
-            if (!data) return;
-            const modalBody = document.getElementById('modalBody');
-            modalBody.innerHTML = `
-                <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem;">
-                    <div style="width:48px; height:48px; border-radius:12px; background:var(--primary-glow); color:var(--primary); display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
-                        <i class="fas ${data.icon}"></i>
-                    </div>
-                    <h3 style="font-size:1.3rem;">${data.title}</h3>
-                </div>
-                ${data.content}
-            `;
-            document.getElementById('techModal').classList.add('open');
-        }
-
-        function closeTechModal(e) {
-            document.getElementById('techModal').classList.remove('open');
-        }
-
-        /* -----------------------------------------------------------
-           LEAFLET HARİTA KURULUMU
-        ----------------------------------------------------------- */
-        let leafletMap = null;
-        function initLeafletMap() {
-            const mapContainer = document.getElementById('contactMap');
-            if (!mapContainer || leafletMap) return;
-
-            // Manisa Celal Bayar Üniversitesi / Teknopark koordinatları
-            const lat = 38.6133;
-            const lng = 27.4227;
-
-            leafletMap = L.map('contactMap', { scrollWheelZoom: false }).setView([lat, lng], 13);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; OpenStreetMap contributors'
-            }).addTo(leafletMap);
-
-            const greenIcon = L.divIcon({
-                className: 'custom-map-marker',
-                html: `<div style="background:#16a34a; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; border:3px solid white; box-shadow:0 3px 10px rgba(0,0,0,0.3); font-size:14px;"><i class="fas fa-seedling"></i></div>`,
-                iconSize: [32, 32],
-                iconAnchor: [16, 16]
-            });
-
-            L.marker([lat, lng], { icon: greenIcon })
-                .addTo(leafletMap)
-                .bindPopup('<b>Plantelligence Ar-Ge</b><br>Akıllı Sera Test İstasyonu #01')
-                .openPopup();
-        }
-
-        // Sayfa yüklendiğinde haritayı başlat
-        window.addEventListener('DOMContentLoaded', () => {
-            initLeafletMap();
-        });
-
-        /* -----------------------------------------------------------
-           İLETİŞİM FORMU VE TOAST BİLDİRİMİ
-        ----------------------------------------------------------- */
-        function handleContactSubmit(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            showToast(`Teşekkürler ${name}, mesajınız iletildi!`);
-            document.getElementById('contactForm').reset();
-        }
 
         function showToast(msg) {
             const toast = document.getElementById('toast');
             document.getElementById('toastMsg').textContent = msg;
             toast.classList.add('show');
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3200);
+            setTimeout(() => toast.classList.remove('show'), 3000);
         }
     </script>
 </body>
